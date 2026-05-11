@@ -1,0 +1,166 @@
+/* ─── Full-page overlay ─── */
+.loader-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top left,  rgba(249,168,212,0.28), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(147,197,253,0.22), transparent 40%),
+    linear-gradient(180deg, #fff7fb 0%, #fdf2f8 50%, #f8fafc 100%);
+  animation: loaderFadeIn 320ms ease both;
+}
+
+@keyframes loaderFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Center stage ─── */
+.loader-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+
+/* ─── Glow blob behind cat ─── */
+.loader-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,114,182,0.22) 0%, transparent 70%);
+  filter: blur(28px);
+  animation: loaderGlowPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes loaderGlowPulse {
+  0%, 100% { transform: scale(1);   opacity: 0.8; }
+  50%       { transform: scale(1.15); opacity: 1;   }
+}
+
+/* ─── Cat SVG ─── */
+.loader-cat {
+  width: 180px;
+  height: auto;
+  position: relative;
+  filter: drop-shadow(0 18px 28px rgba(244,114,182,0.18));
+  animation: loaderCatBob 2.8s ease-in-out infinite;
+}
+
+@keyframes loaderCatBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ear wiggle */
+.loader-ear-left {
+  transform-origin: 74px 72px;
+  animation: earWiggleL 3.6s ease-in-out infinite;
+}
+.loader-ear-right {
+  transform-origin: 146px 72px;
+  animation: earWiggleR 3.6s ease-in-out infinite;
+}
+
+@keyframes earWiggleL {
+  0%, 42%, 100% { transform: rotate(0deg); }
+  50%           { transform: rotate(-12deg); }
+  58%           { transform: rotate(4deg); }
+}
+@keyframes earWiggleR {
+  0%, 42%, 100% { transform: rotate(0deg); }
+  50%           { transform: rotate(12deg); }
+  58%           { transform: rotate(-4deg); }
+}
+
+/* tail sway */
+.loader-tail {
+  transform-origin: 160px 220px;
+  animation: tailSway 1.8s ease-in-out infinite;
+}
+@keyframes tailSway {
+  0%, 100% { transform: rotate(0deg); }
+  40%      { transform: rotate(14deg); }
+  80%      { transform: rotate(-10deg); }
+}
+
+/* eye blink */
+.loader-eyes-open  { animation: eyeBlink 4s infinite; }
+.loader-eyes-blink { animation: eyeBlinkClose 4s infinite; opacity: 0; }
+
+@keyframes eyeBlink {
+  0%, 88%, 96%, 100% { opacity: 1; }
+  90%, 94%           { opacity: 0; }
+}
+@keyframes eyeBlinkClose {
+  0%, 88%, 96%, 100% { opacity: 0; }
+  90%, 94%           { opacity: 1; }
+}
+
+/* ─── Loading dots ─── */
+.loader-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.loader-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fb7185, #c084fc);
+  animation: dotBounce 1.2s ease-in-out infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: 0.18s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+  40%           { transform: scale(1.2); opacity: 1;   }
+}
+
+/* ─── Label ─── */
+.loader-label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #7c3aed;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Dark mode ─── */
+[data-theme="dark"] .loader-shell {
+  background:
+    radial-gradient(circle at top left, rgba(139, 68, 172, 0.24), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(59, 40, 120, 0.2), transparent 40%),
+    linear-gradient(180deg, #0e0618 0%, #120920 50%, #0c0718 100%);
+}
+
+[data-theme="dark"] .loader-label {
+  color: #d8b4fe;
+}
+
+[data-theme="dark"] .loader-dots span {
+  background: linear-gradient(135deg, #fb7185, #c084fc);
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .loader-cat,
+  .loader-ear-left,
+  .loader-ear-right,
+  .loader-tail,
+  .loader-eyes-open,
+  .loader-eyes-blink,
+  .loader-dots span,
+  .loader-glow {
+    animation: none !important;
+  }
+  .loader-eyes-open  { opacity: 1; }
+  .loader-eyes-blink { opacity: 0; }
+}
+
