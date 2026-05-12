@@ -6,7 +6,8 @@
 
 ## 🎯 What is PurrVibeX?
 
-PurrVibeX is a **cat-themed social platform** where users can hang out in themed rooms, listen to music together, play mini games, customize their own cat avatar, and connect with fellow cat lovers.
+PurrVibeX is a **cat-themed social platform** where users can hang out in themed rooms, listen to music together, play
+mini games, customize their own cat avatar, and connect with fellow cat lovers.
 
 It's not just a social network — it's a vibe. 🐱✨
 
@@ -14,43 +15,40 @@ It's not just a social network — it's a vibe. 🐱✨
 
 ## ✨ Core Features (✅ = Frontend UI Implemented)
 
-| Feature | Status | Description |
-|---------|--------|-------------|
-| 🏠 PurrLounge | ✅ | Join themed rooms to chat, chill, play games, or listen to music |
-| 🎧 BeatPaws | ✅ | Queue songs and listen in sync with everyone (player UI + queue) |
-| 🐱 MeowDex | ✅ | Your personal cat ID card — profile, badges, activity feed |
-| 🖼️ Cat Gallery | ✅ | Share real cat photos (masonry, filters, likes) |
-| 🏆 TopPaw | ✅ | Meow Points leaderboard with podium (top 3) |
-| 🛍️ ClawMart | ✅ | Shop for avatar items, stickers, themes (with Meow Points) |
-| 🔐 Authentication | ✅ | Google OAuth + Email/Password, Firebase integration |
-| 🌙 Dark Mode | ✅ | Full light/dark theme toggle (PurrLight / PurrDark) |
-| 📱 Apple Dock Nav | ✅ | Bottom dock for mobile/tablet (responsive, animated) |
-| ⚡ User Dropdown | ✅ | Profile → PurrDex, Language, Dark/Light, Logout |
-| ⏳ Loading Screen | ✅ | Animated meow cat while checking session |
-| 🎨 Responsive Design | ✅ | Full typography clamp, desktop/tablet/mobile breakpoints |
-| ✨ Apple Parallax | ✅ | Mouse-driven parallax on hero + scroll reveal animations |
-| 💬 Chat & Social | 🔄 | Real-time chat, DMs, group chat, friend system (backend WIP) |
-| 🎮 Mini Games | 🔄 | Play Catch the Mouse, Fish Collector, etc. (backend WIP) |
-| 📅 Cat Events | ⏰ | Seasonal events (planned for v2) |
+| Feature              | Status | Description                                                      |
+|----------------------|--------|------------------------------------------------------------------|
+| 🏠 PurrLounge        | ✅      | Join themed rooms to chat, chill, play games, or listen to music |
+| 🎧 BeatPaws          | ✅      | Queue songs and listen in sync with everyone (player UI + queue) |
+| 🐱 MeowDex           | ✅      | Your personal cat ID card — profile, badges, activity feed       |
+| 🖼️ Cat Gallery      | ✅      | Share real cat photos (masonry, filters, likes)                  |
+| 🏆 TopPaw            | ✅      | Meow Points leaderboard with podium (top 3)                      |
+| 🛍️ ClawMart         | ✅      | Shop for avatar items, stickers, themes (with Meow Points)       |
+| 🔐 Authentication    | ✅      | Google OAuth + Email/Password, Firebase integration              |
+| 🌙 Dark Mode         | ✅      | Full light/dark theme toggle (PurrLight / PurrDark)              |
+| 📱 Apple Dock Nav    | ✅      | Bottom dock for mobile/tablet (responsive, animated)             |
+| ⚡ User Dropdown      | ✅      | Profile → PurrDex, Language, Dark/Light, Logout                  |
+| ⏳ Loading Screen     | ✅      | Animated meow cat while checking session                         |
+| 🎨 Responsive Design | ✅      | Full typography clamp, desktop/tablet/mobile breakpoints         |
+| ✨ Apple Parallax     | ✅      | Mouse-driven parallax on hero + scroll reveal animations         |
+| 💬 Chat & Social     | 🔄     | Real-time chat, DMs, group chat, friend system (backend WIP)     |
+| 🎮 Mini Games        | 🔄     | Play Catch the Mouse, Fish Collector, etc. (backend WIP)         |
+| 📅 Cat Events        | ⏰      | Seasonal events (planned for v2)                                 |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Tech |
-|-------|------|
-cd /Users/jerrynguyen99/IdeaProjects/meow-world/backend
-composer create-project laravel/laravel .cd /Users/jerrynguyen99/IdeaProjects/meow-world/backend
-composer create-project laravel/laravel .cd /Users/jerrynguyen99/IdeaProjects/meow-world/backend
-composer create-project laravel/laravel .| Frontend | React 18 + Vite + TailwindCSS |
-| State Management | Zustand |
-| Backend | Laravel 11 (PHP 8.3) |
-| Real-time | Laravel Echo + Soketi (self-hosted, free) |
-| Music | yt-dlp → FFmpeg → WebSocket stream |
-| Database | PostgreSQL 15 |
-| File Storage | Cloudflare R2 / Supabase Storage (free tier) |
-| Hosting | Railway / Render (backend) · Vercel / Netlify (frontend) |
-| Avatar Builder | Canvas API or SVG layering |
+| Layer            | Tech                                                     |
+|------------------|----------------------------------------------------------|
+| Frontend         | React 18 + Vite + TailwindCSS                            |
+| State Management | Zustand                                                  |
+| Backend          | Laravel 11 (PHP 8.3)                                     |
+| Real-time        | Laravel Echo + Soketi (self-hosted, free)                |
+| Music            | yt-dlp -> FFmpeg -> WebSocket stream                     |
+| Database         | PostgreSQL 15                                            |
+| File Storage     | Cloudflare R2 / Supabase Storage (free tier)             |
+| Hosting          | Railway / Render (backend) · Vercel / Netlify (frontend) |
+| Avatar Builder   | Canvas API or SVG layering                               |
 
 ---
 
@@ -58,16 +56,17 @@ composer create-project laravel/laravel .| Frontend | React 18 + Vite + Tailwind
 
 Make sure you have all of the following installed before starting:
 
-| Tool | Minimum Version | Check |
-|------|----------------|-------|
-| [PHP](https://www.php.net/) | 8.2+ | `php --version` |
-| [Composer](https://getcomposer.org/) | 2.x | `composer --version` |
-| [Node.js](https://nodejs.org/) | 20+ | `node --version` |
-| [npm](https://www.npmjs.com/) | 9+ | `npm --version` |
-| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Latest | `docker --version` |
-| [Git](https://git-scm.com/) | 2.x | `git --version` |
+| Tool                                                              | Minimum Version | Check                |
+|-------------------------------------------------------------------|-----------------|----------------------|
+| [PHP](https://www.php.net/)                                       | 8.2+            | `php --version`      |
+| [Composer](https://getcomposer.org/)                              | 2.x             | `composer --version` |
+| [Node.js](https://nodejs.org/)                                    | 20+             | `node --version`     |
+| [npm](https://www.npmjs.com/)                                     | 9+              | `npm --version`      |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Latest          | `docker --version`   |
+| [Git](https://git-scm.com/)                                       | 2.x             | `git --version`      |
 
 **Optional but recommended:**
+
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) — for Music Stream Room feature
 - [FFmpeg](https://ffmpeg.org/) — for audio encoding in Music Stream Room
 
@@ -209,24 +208,55 @@ soketi start --config=soketi/.env.example
 
 ## 🌐 Service URLs
 
-| Service | URL |
-|---------|-----|
-| 🎨 Frontend | http://localhost:5173 |
-| 🔌 Backend API | http://localhost:8000/api |
-| 📡 WebSocket (Soketi) | ws://localhost:6001 |
-| 🐘 PostgreSQL | localhost:5432 |
+| Service               | URL                       |
+|-----------------------|---------------------------|
+| 🎨 Frontend           | http://localhost:5173     |
+| 🔌 Backend API        | http://localhost:8000/api |
+| 📡 WebSocket (Soketi) | ws://localhost:6001       |
+| 🐘 PostgreSQL         | localhost:5432            |
+
+---
+
+## 🚢 Production Deploy (Firebase + Railway)
+
+Use two separate services:
+
+- `frontend` -> Firebase Hosting (static React build)
+- `backend` -> Railway (Laravel API + Postgres)
+
+### 1) Railway backend service
+
+- In Railway, set `Root Directory` to `backend`
+- Keep backend health endpoint at `/api/health`
+- Set backend env vars (`APP_KEY`, `APP_ENV`, `DB_*`, etc.)
+
+### 2) Firebase frontend hosting
+
+- Build/deploy from repository root with `firebase.json`
+- Frontend runtime env uses `VITE_API_URL` from GitHub Actions secrets
+- `VITE_API_URL` can be domain root (the app auto-appends `/api`)
+
+### 3) Sanity checks
+
+```bash
+curl -i https://<your-backend-domain>/api/health
+```
+
+```bash
+curl -i https://<your-frontend-domain>
+```
 
 ---
 
 ## 🗺️ Roadmap
 
-| Priority | Feature |
-|----------|---------|
-| 🔴 High | Auth, Profile, Chat, Friend system |
-| 🟠 Medium | Music Stream Room |
-| 🟡 Medium | Mini Games (v1) |
-| 🟢 Low | Cat Gallery, Events, Shop |
-| ⚪ Future | AI companion, Voice rooms, Horoscope... |
+| Priority  | Feature                                 |
+|-----------|-----------------------------------------|
+| 🔴 High   | Auth, Profile, Chat, Friend system      |
+| 🟠 Medium | Music Stream Room                       |
+| 🟡 Medium | Mini Games (v1)                         |
+| 🟢 Low    | Cat Gallery, Events, Shop               |
+| ⚪ Future  | AI companion, Voice rooms, Horoscope... |
 
 ---
 
