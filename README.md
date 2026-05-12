@@ -308,3 +308,31 @@ MIT — free to use, fork, and meow with. 🐱
 ---
 
 > *Every idea, no matter how small, is recorded here. PurrVibeX will grow over time! 🐾*
+
+---
+
+### CI/CD Secrets Checklist
+
+Configure these in GitHub: `Settings` -> `Secrets and variables` -> `Actions`.
+
+Frontend workflow (`.github/workflows/deploy-frontend.yml`):
+
+- `FIREBASE_SERVICE_ACCOUNT`
+- `FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+- `VITE_API_URL`
+- `VITE_PUSHER_APP_KEY`
+- `VITE_PUSHER_CLUSTER`
+- `VITE_PUSHER_HOST` (optional)
+- `VITE_PUSHER_PORT` (optional)
+- `VITE_PUSHER_SCHEME` (optional)
+
+Backend workflow (`.github/workflows/deploy-backend.yml`):
+
+- `RAILWAY_TOKEN`
+- `BACKEND_HEALTHCHECK_URL` (optional, example: `https://your-backend.up.railway.app/api/health`)
