@@ -17,7 +17,10 @@ export default function Navbar() {
   const nav = strings.nav;
 
   const links = [
-    ...(!user ? [{ to: '/about', label: nav.about, icon: '✨' }] : []),
+    ...(!user ? [{ to: '/about', label: nav.about, icon: '✨' },
+        {to: '/login', label: nav.login, icon: '🔑'},
+        {to: '/register', label: nav.register, icon: '📝'}
+        ] : []),
     ...(user
       ? [
           { to: '/purrlounge',  label: nav.rooms,       icon: '🐾' },
@@ -202,13 +205,6 @@ export default function Navbar() {
                       </div>
                     )}
                   </div>
-
-                  <Link className="auth-btn auth-btn-secondary" to="/login">
-                    {nav.login}
-                  </Link>
-                  <Link className="auth-btn auth-btn-primary" to="/register">
-                    {nav.register}
-                  </Link>
                 </>
               )}
             </div>
@@ -229,39 +225,6 @@ export default function Navbar() {
             <span className="dock-label">{link.label}</span>
           </NavLink>
         ))}
-
-        {/* Guest: Login + Settings toggles */}
-        {!user && (
-          <>
-            <NavLink
-              to="/login"
-              className={({ isActive }) => `dock-link ${isActive ? 'active' : ''}`}
-            >
-              <span className="dock-icon" aria-hidden="true">🔑</span>
-              <span className="dock-label">{nav.login}</span>
-            </NavLink>
-            <button
-              type="button"
-              className="dock-link"
-              onClick={toggleLang}
-              aria-label={nav.switchTo}
-            >
-              <span className="dock-icon">🌐</span>
-              <span className="dock-label">{lang === 'en' ? 'VI' : 'EN'}</span>
-            </button>
-          </>
-        )}
-
-        {/* Dark / light toggle — always visible */}
-        <button
-          type="button"
-          className="dock-link"
-          onClick={toggleDark}
-          aria-label={dark ? nav.lightMode : nav.darkMode}
-        >
-          <span className="dock-icon">{dark ? '☀️' : '🌙'}</span>
-          <span className="dock-label">{dark ? 'Light' : 'Dark'}</span>
-        </button>
       </nav>
     </>
   );

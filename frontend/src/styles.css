@@ -102,8 +102,7 @@ body::before {
 .profile-card,
 .profile-badges-section,
 .profile-activity-section,
-.auth-card,
-.auth-illustration-card,
+.auth-glass-card,
 .user-dropdown {
   transition: background-color var(--theme-transition), color var(--theme-transition), border-color var(--theme-transition), box-shadow var(--theme-transition);
 }

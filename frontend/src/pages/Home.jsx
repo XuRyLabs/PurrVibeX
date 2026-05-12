@@ -73,13 +73,6 @@ export default function Home() {
             </div>
           )}
 
-          {!user && (
-            <div className="hero-auth-links">
-              <Link className="hero-mini-link" to="/login">{strings.nav.login}</Link>
-              <Link className="hero-mini-link hero-mini-link-accent" to="/register">{strings.nav.register}</Link>
-            </div>
-          )}
-
           <div className="hero-badges" aria-label="Feature highlights">
             {home.badgeRow.map((label) => (
               <StatPill key={label}>{label}</StatPill>
@@ -89,12 +82,6 @@ export default function Home() {
           <div className="hero-blurb">
             <h2>{home.heroTitle}</h2>
             <p>{home.heroSubtitle}</p>
-          </div>
-
-          <div className="trust-row" aria-label="Trust signals">
-            {home.trustPills.map((pill) => (
-              <span key={pill} className="trust-pill">{pill}</span>
-            ))}
           </div>
         </div>
 
@@ -216,32 +203,6 @@ export default function Home() {
             </InViewSection>
           ))}
         </div>
-      </InViewSection>
-
-      {/* ─── QUICK LINKS ─── */}
-      <InViewSection className="page-wrap content-section" delay={60}>
-        <div className="section-title fancy-title">
-          <div>
-            <h2>{home.quickTitle}</h2>
-            <p>{home.quickSubtitle}</p>
-          </div>
-        </div>
-
-        {user ? (
-          <div className="quick-links-grid">
-            {home.quickLinks.map((item, index) => {
-              const routes = ['/purrlounge', '/mewseum', '/toppaw', '/clawmart'];
-              const accents = ['accent-peach', 'accent-lavender', 'accent-sky', 'accent-rose'];
-              return (
-                <InViewSection key={item.title} delay={index * 80}>
-                  <QuickLinkCard item={item} to={routes[index]} accentClass={accents[index]} />
-                </InViewSection>
-              );
-            })}
-          </div>
-        ) : (
-          <article className="info-card quick-links-locked">{home.quickGuestPrompt}</article>
-        )}
       </InViewSection>
 
       {/* ─── TESTIMONIALS ─── */}
