@@ -276,6 +276,17 @@ button:hover,
   box-shadow: 0 10px 22px rgba(192, 132, 252, 0.2);
 }
 
+/* Settings button (guest state) — inherits .nav-link, adds icon gap */
+.settings-btn {
+  gap: 6px;
+  text-decoration: none;
+}
+.settings-btn .user-chip-caret {
+  font-size: 0.6rem;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
 .nav-auth-controls {
   display: flex;
   align-items: center;
@@ -324,9 +335,7 @@ button:hover,
   background: rgba(139, 92, 246, 0.08);
   border: 1px solid rgba(139, 92, 246, 0.15);
   white-space: nowrap;
-  max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 220px;
 }
 
 .lang-toggle {

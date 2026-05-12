@@ -11,8 +11,8 @@ export const TEXTS = {
       home: 'Home',
       about: 'About us',
       rooms: 'PurrLounge',
-      gallery: 'Gallery',
-      leaderboard: 'Hall of Paws',
+      gallery: 'MewSeum',
+      leaderboard: 'TopPaw',
       shop: 'ClawMart',
       login: 'Login',
       register: 'Register',
@@ -22,15 +22,15 @@ export const TEXTS = {
       darkMode: 'PurrDark',
       lightMode: 'PurrLight',
       brandSubtitle: 'Powered by XuRyLabs',
+      settings: 'Settings',
     },
     home: {
-      pill: '🐾 Your new favourite cat-powered hangout spot',
       titleLead: 'The internet just got way cuter —',
       titleHighlight: 'welcome, cat lover!',
       intro:
         'Join a cozy room, share cat pics, and vibe together. No drama, just purrs. 🐱',
-      primary: 'Jump into Meow Rooms ✨',
-      secondary: 'Explore the Gallery 📸',
+      primary: 'Jump into PurrLounge ✨',
+      secondary: 'Explore the MewSeum 📸',
       badgeRow: ['Mega cozy vibes ☁️', 'Live rooms 🟢', 'Collect cute stuff 🎁'],
       heroTitle: 'Imagine a tiny cat café — but make it the internet.',
       heroSubtitle:
@@ -65,8 +65,8 @@ export const TEXTS = {
       quickGuestPrompt: 'Log in to explore.',
       quickLinks: [
         makeQuickLink('🏠', 'PurrLounge', 'Find a cozy room, make yourself at home, and say hi to the regulars.'),
-        makeQuickLink('🖼️', 'Cat Gallery', 'Scroll through community cat pics. Therapeutic. Scientifically proven.*'),
-        makeQuickLink('🏆', 'Hall of Paws', 'Who\'s the top cat? Check the board and see if you\'re on it.'),
+        makeQuickLink('🖼️', 'MewSeum', 'Scroll through community cat pics. Therapeutic. Scientifically proven.*'),
+        makeQuickLink('🏆', 'TopPaw', 'Who\'s the top cat? Check the board and see if you\'re on it.'),
         makeQuickLink('🛒', 'ClawMart', 'Treat yourself. You deserve that sparkly sticker pack.'),
       ],
       reelTitle: '✨ Live right now',
@@ -78,19 +78,19 @@ export const TEXTS = {
       proofSubtitle: 'Short reviews from our early cat crowd.',
       testimonials: [
         makeTestimonial(
-          'Linh',
+          'Doraemon Meow',
           'Certified early adopter',
           'Came for cat photos, stayed for hours. Instant cozy vibe.',
           '🐱✨'
         ),
         makeTestimonial(
-          'Minh',
+          'Kmimi',
           'Self-proclaimed BeatPaws addict',
           'Sync music with friends is smooth and surprisingly addictive.',
           '🎧🐾'
         ),
         makeTestimonial(
-          'An',
+          'Mimi Purr',
           'MeowDex power user',
           'Profile customization is fast, fun, and dangerously cute.',
           '📸😸'
@@ -117,23 +117,23 @@ export const TEXTS = {
       ],
     },
     gallery: {
-      title: '🖼️ Cat Gallery',
+      title: '🖼️ MewSeum',
       subtitle: 'Community-submitted boss photos. Drop yours anytime.',
       shareButton: '+ Share a photo',
       tags: ['All', 'Cute', 'Funny', 'Cozy', 'Wild'],
       photos: [
-        { emoji: '🐱', name: 'Mochi napping', user: '@linh.cat', likes: 42 },
-        { emoji: '😸', name: 'Big yawn energy', user: '@minh.purr', likes: 38 },
-        { emoji: '🐾', name: 'Paw close-up', user: '@an.meow', likes: 61 },
+        { emoji: '🐱', name: 'Mochi napping', user: '@doraemon.cat', likes: 42 },
+        { emoji: '😸', name: 'Big yawn energy', user: '@mimi.purr', likes: 38 },
+        { emoji: '🐾', name: 'Paw close-up', user: '@kuro.neko', likes: 61 },
         { emoji: '😺', name: 'Window watcher', user: '@jerry.cat', likes: 29 },
-        { emoji: '🙀', name: 'Startled at vacuum', user: '@linh.cat', likes: 87 },
-        { emoji: '😻', name: 'Loaf mode', user: '@minh.purr', likes: 54 },
-        { emoji: '🐈', name: 'Stealth mode', user: '@an.meow', likes: 33 },
+        { emoji: '🙀', name: 'Startled at vacuum', user: '@doraemon.cat', likes: 87 },
+        { emoji: '😻', name: 'Loaf mode', user: '@mimi.purr', likes: 54 },
+        { emoji: '🐈', name: 'Stealth mode', user: '@kuromeow', likes: 33 },
         { emoji: '🐈‍⬛', name: 'Midnight vibes', user: '@jerry.cat', likes: 71 },
       ],
     },
     leaderboard: {
-      title: '🏆 Hall of Paws',
+      title: '🏆 TopPaw',
       subtitle: 'Top cats ranked by Meow Points this week.',
       pointsLabel: 'pts',
       youLabel: "That's you! 🐾",
@@ -216,10 +216,10 @@ export const TEXTS = {
       badges: ['🐾 Early Cat', '🎧 BeatPaws Fan', '📸 Shutterpaw', '🏆 Top 10', '🧶 Crafter', '🌙 Night Owl', '🎮 Gamer Paw'],
       activity: [
         { icon: '🏠', text: 'Joined Lo-fi Study Corner', time: '2 min ago' },
-        { icon: '❤️', text: 'Liked a photo in Gallery', time: '18 min ago' },
+        { icon: '❤️', text: 'Liked a photo in MewSeum', time: '18 min ago' },
         { icon: '🛍️', text: 'Bought Sakura Theme', time: '1 hr ago' },
         { icon: '🎧', text: 'Queued a song in BeatPaws', time: '3 hr ago' },
-        { icon: '🏆', text: 'Reached #6 on Hall of Paws', time: 'Yesterday' },
+        { icon: '🏆', text: 'Reached #6 on TopPaw', time: 'Yesterday' },
       ],
     },
     loader: {
@@ -288,8 +288,8 @@ export const TEXTS = {
       home: 'Trang chủ',
       about: 'Về chúng mình',
       rooms: 'PurrLounge',
-      gallery: 'Gallery',
-      leaderboard: 'Hall of Paws',
+      gallery: 'MewSeum',
+      leaderboard: 'TopPaw',
       shop: 'ClawMart',
       login: 'Đăng nhập',
       register: 'Đăng ký',
@@ -299,6 +299,7 @@ export const TEXTS = {
       darkMode: 'PurrDark',
       lightMode: 'PurrLight',
       brandSubtitle: 'Powered by XuRyLabs',
+      settings: 'Cài đặt',
     },
     home: {
       pill: '🐾 Góc internet siêu chill dành cho hội yêu mèo',
@@ -307,7 +308,7 @@ export const TEXTS = {
       intro:
         'Vào phòng chill, đăng ảnh boss, nghe nhạc cùng nhau. Không drama, chỉ có tiếng rừ rừ. 🐱',
       primary: 'Vào PurrLounge ngay ✨',
-      secondary: 'Lướt Cat Gallery 📸',
+      secondary: 'Lướt MewSeum 📸',
       badgeRow: ['Vibe êm ru ☁️', 'Phòng live 🟢', 'Bộ sưu tập xinh xắn 🎁'],
       heroTitle: 'Hình dung quán cà phê mèo nhỏ xíu — nhưng trên internet.',
       heroSubtitle:
@@ -342,8 +343,8 @@ export const TEXTS = {
       quickGuestPrompt: 'Đăng nhập để khám phá.',
       quickLinks: [
         makeQuickLink('🏠', 'PurrLounge', 'Tìm phòng chill, an vị thoải mái và chào hỏi các thành viên quen mặt.'),
-        makeQuickLink('🖼️', 'Cat Gallery', 'Lướt ảnh mèo cộng đồng. Trị liệu tinh thần. Đã được khoa học chứng minh.*'),
-        makeQuickLink('🏆', 'Hall of Paws', 'Ai đang là top mèo? Lên bảng xem tên bạn có ở đó không nào.'),
+        makeQuickLink('🖼️', 'MewSeum', 'Lướt ảnh mèo cộng đồng. Trị liệu tinh thần. Đã được khoa học chứng Kmimi.*'),
+        makeQuickLink('🏆', 'TopPaw', 'Ai đang là top mèo? Lên bảng xem tên bạn có ở đó không nào.'),
         makeQuickLink('🛒', 'ClawMart', 'Chiều bản thân đi. Bạn xứng đáng có gói sticker lấp lánh đó mà.'),
       ],
       reelTitle: '✨ Đang diễn ra ngay lúc này',
@@ -355,13 +356,13 @@ export const TEXTS = {
       proofSubtitle: 'Review ngắn từ hội mê mèo dùng sớm.',
       testimonials: [
         makeTestimonial(
-          'Linh',
+          'Doraemon',
           'Người vào sớm nhất hội',
           'Vào vì ảnh mèo, ở lại vì vibe. Quá cuốn.',
           '🐱✨'
         ),
         makeTestimonial(
-          'Minh',
+          'Kmimi',
           'Con nghiện BeatPaws tự phong',
           'Nghe nhạc đồng bộ rất mượt, dùng là dính luôn.',
           '🎧🐾'
@@ -373,8 +374,8 @@ export const TEXTS = {
           '📸😸'
         ),
       ],
-      footerTitle: 'Được tạo với 🩷 bởi XuRyLabs',
-      footerText: 'Màu mềm, motion mượt, năng lượng mèo ngập tràn.',
+      footerTitle: 'Được tạo bởi XuRyLabs với cả trái tim 🩷',
+      footerText: '🐾 PurrVibeX — một góc xinh xẻo với những kẻ yêu mèo.',
       trustPills: ['UI không cringe 🙅', 'Boss mèo đã duyệt 🐾', 'Đảm bảo gây "aww" 🌸'],
     },
     rooms: {
@@ -394,23 +395,23 @@ export const TEXTS = {
       ],
     },
     gallery: {
-      title: '🖼️ Cat Gallery',
+      title: '🖼️ MewSeum',
       subtitle: 'Ảnh boss từ cộng đồng. Up ngay nếu muốn khoe.',
       shareButton: '+ Đăng ảnh',
       tags: ['Tất cả', 'Cute', 'Hài hước', 'Chill', 'Năng động'],
       photos: [
-        { emoji: '🐱', name: 'Mochi ngủ nướng', user: '@linh.cat', likes: 42 },
-        { emoji: '😸', name: 'Ngáp cực mạnh', user: '@minh.purr', likes: 38 },
-        { emoji: '🐾', name: 'Cận cảnh bàn chân', user: '@an.meow', likes: 61 },
+        { emoji: '🐱', name: 'Mochi ngủ nướng', user: '@Doraemon.cat', likes: 42 },
+        { emoji: '😸', name: 'Ngáp cực mạnh', user: '@Kmimi.purr', likes: 38 },
+        { emoji: '🐾', name: 'Cận cảnh bàn chân', user: '@kuromeow', likes: 61 },
         { emoji: '😺', name: 'Ngồi canh cửa sổ', user: '@jerry.cat', likes: 29 },
-        { emoji: '🙀', name: 'Hoảng vì máy hút bụi', user: '@linh.cat', likes: 87 },
-        { emoji: '😻', name: 'Loaf mode', user: '@minh.purr', likes: 54 },
-        { emoji: '🐈', name: 'Stealth mode', user: '@an.meow', likes: 33 },
+        { emoji: '🙀', name: 'Hoảng vì máy hút bụi', user: '@Doraemon.cat', likes: 87 },
+        { emoji: '😻', name: 'Loaf mode', user: '@Kmimi.purr', likes: 54 },
+        { emoji: '🐈', name: 'Stealth mode', user: '@kuromeow', likes: 33 },
         { emoji: '🐈‍⬛', name: 'Vibe nửa đêm', user: '@jerry.cat', likes: 71 },
       ],
     },
     leaderboard: {
-      title: '🏆 Hall of Paws',
+      title: '🏆 TopPaw',
       subtitle: 'Top mèo theo Meow Points tuần này.',
       pointsLabel: 'điểm',
       youLabel: 'Bạn đây rồi! 🐾',
@@ -493,10 +494,10 @@ export const TEXTS = {
       badges: ['🐾 Early Cat', '🎧 Fan BeatPaws', '📸 Shutterpaw', '🏆 Top 10', '🧶 Crafter', '🌙 Cú đêm', '🎮 Gamer Paw'],
       activity: [
         { icon: '🏠', text: 'Vừa vào phòng Lo-fi Study Corner', time: '2 phút trước' },
-        { icon: '❤️', text: 'Đã thả tim một ảnh trong Gallery', time: '18 phút trước' },
+        { icon: '❤️', text: 'Đã thả tim một ảnh trong MewSeum', time: '18 phút trước' },
         { icon: '🛍️', text: 'Đã mua Sakura Theme', time: '1 giờ trước' },
         { icon: '🎧', text: 'Đã thêm bài hát vào BeatPaws', time: '3 giờ trước' },
-        { icon: '🏆', text: 'Đạt hạng #6 trên Hall of Paws', time: 'Hôm qua' },
+        { icon: '🏆', text: 'Đạt hạng #6 trên TopPaw', time: 'Hôm qua' },
       ],
     },
     loader: {

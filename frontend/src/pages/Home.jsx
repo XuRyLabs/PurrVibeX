@@ -61,13 +61,6 @@ export default function Home() {
         onMouseLeave={parallax.onMouseLeave}
       >
         <div className="hero-copy">
-          <div className="hero-topline">
-            <div className="pill">{home.pill}</div>
-            <button type="button" className="hero-lang-chip" onClick={toggleLang}>
-              {lang === 'en' ? 'VI' : 'EN'}
-            </button>
-          </div>
-
           <h1>
             {home.titleLead} <span>{home.titleHighlight}</span>.
           </h1>
@@ -75,8 +68,8 @@ export default function Home() {
 
           {user && (
             <div className="hero-actions">
-              <Link className="btn btn-primary" to="/rooms">{home.primary}</Link>
-              <Link className="btn btn-secondary" to="/gallery">{home.secondary}</Link>
+              <Link className="btn btn-primary" to="/purrlounge">{home.primary}</Link>
+              <Link className="btn btn-secondary" to="/mewseum">{home.secondary}</Link>
             </div>
           )}
 
@@ -237,7 +230,7 @@ export default function Home() {
         {user ? (
           <div className="quick-links-grid">
             {home.quickLinks.map((item, index) => {
-              const routes = ['/rooms', '/gallery', '/leaderboard', '/shop'];
+              const routes = ['/purrlounge', '/mewseum', '/toppaw', '/clawmart'];
               const accents = ['accent-peach', 'accent-lavender', 'accent-sky', 'accent-rose'];
               return (
                 <InViewSection key={item.title} delay={index * 80}>
@@ -276,8 +269,6 @@ export default function Home() {
         </div>
         <div className="footer-sticker">🐾🌸😺</div>
       </InViewSection>
-
-      <div className="footer-note">🐾 PurrVibeX — a cute little corner of the internet</div>
     </div>
   );
 }

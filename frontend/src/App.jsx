@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/common/Navbar';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import LoadingScreen from './components/common/LoadingScreen';
@@ -7,12 +7,12 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import About from './pages/About';
-import Profile from './pages/Profile';
-import Rooms from './pages/Rooms';
-import MusicRoom from './pages/MusicRoom';
-import Shop from './pages/Shop';
-import Gallery from './pages/Gallery';
-import Leaderboard from './pages/Leaderboard';
+import MeowDex from './pages/MeowDex';
+import PurrLounge from './pages/PurrLounge';
+import BeatPaws from './pages/BeatPaws';
+import ClawMart from './pages/ClawMart';
+import MewSeum from './pages/MewSeum';
+import TopPaw from './pages/TopPaw';
 
 function AppRoutes() {
   const location = useLocation();
@@ -24,13 +24,21 @@ function AppRoutes() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Legacy redirects */}
+        <Route path="/rooms" element={<Navigate to="/purrlounge" replace />} />
+        <Route path="/gallery" element={<Navigate to="/mewseum" replace />} />
+        <Route path="/leaderboard" element={<Navigate to="/toppaw" replace />} />
+        <Route path="/shop" element={<Navigate to="/clawmart" replace />} />
+        <Route path="/profile/:id" element={<Navigate to="/meowdex/:id" replace />} />
+
         <Route element={<ProtectedRoute />}>
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/rooms" element={<Rooms />} />
-          <Route path="/rooms/:id/music" element={<MusicRoom />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/meowdex/:id" element={<MeowDex />} />
+          <Route path="/purrlounge" element={<PurrLounge />} />
+          <Route path="/purrlounge/:id/beatpaws" element={<BeatPaws />} />
+          <Route path="/clawmart" element={<ClawMart />} />
+          <Route path="/mewseum" element={<MewSeum />} />
+          <Route path="/toppaw" element={<TopPaw />} />
         </Route>
       </Routes>
     </main>

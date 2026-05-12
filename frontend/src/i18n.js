@@ -10,8 +10,8 @@ export const TEXTS = {
     nav: {
       home: 'Home',
       rooms: 'Rooms',
-      gallery: 'Gallery',
-      leaderboard: 'Leaderboard',
+      gallery: 'MeowSeum',
+      leaderboard: 'TopPaw',
       shop: 'Shop',
       switchTo: 'Tiếng Việt',
     },
@@ -22,7 +22,7 @@ export const TEXTS = {
       intro:
         'Hang out in Meow Rooms, share cat photos, enjoy synced music, play mini games, and build your own adorable cat identity — all wrapped in a soft, playful vibe.',
       primary: 'Enter Meow Rooms ✨',
-      secondary: 'Browse Cat Gallery 📸',
+      secondary: 'Browse MewSeum 📸',
       badgeRow: ['Soft vibes', 'Real-time rooms', 'Cute rewards'],
       heroTitle: 'A cozy digital home that feels warm, playful, and a little magical.',
       heroSubtitle:
@@ -56,8 +56,8 @@ export const TEXTS = {
       quickSubtitle: 'Use the navbar or jump straight into the pages below.',
       quickLinks: [
         makeQuickLink('🏠', 'Explore Rooms', 'Find public rooms, cozy corners, and hangout spaces.'),
-        makeQuickLink('🖼️', 'Cat Gallery', 'Browse cute cat photos, stories, and community moments.'),
-        makeQuickLink('🏆', 'Leaderboard', 'See who is active, playing, and collecting the most points.'),
+        makeQuickLink('🖼️', 'MewSeum', 'Browse cute cat photos, stories, and community moments.'),
+        makeQuickLink('🏆', 'TopPaw', 'See who is active, playing, and collecting the most points.'),
         makeQuickLink('🛒', 'Meow Shop', 'Pick up avatar items, themes, and tiny decorative treasures.'),
       ],
       reelTitle: 'Tiny motion reel',
@@ -96,8 +96,8 @@ export const TEXTS = {
     nav: {
       home: 'Trang chủ',
       rooms: 'Phòng',
-      gallery: 'Gallery',
-      leaderboard: 'Bảng xếp hạng',
+      gallery: 'MeowSeum',
+      leaderboard: 'TopPaw',
       shop: 'Cửa hàng',
       switchTo: 'English',
     },
@@ -108,7 +108,7 @@ export const TEXTS = {
       intro:
         'Vào Meow Rooms để tám chuyện, chia sẻ ảnh mèo, nghe nhạc đồng bộ, chơi mini game và xây dựng dấu ấn cat avatar của riêng bạn — tất cả được gói trong một vibe mềm mại, vui tươi.',
       primary: 'Vào Meow Rooms ✨',
-      secondary: 'Xem Cat Gallery 📸',
+      secondary: 'Vào MewSeum 📸',
       badgeRow: ['Vibe mềm mại', 'Phòng real-time', 'Quà thưởng dễ thương'],
       heroTitle: 'Một ngôi nhà số ấm áp, vui nhộn và hơi có chút phép màu.',
       heroSubtitle:
@@ -142,8 +142,8 @@ export const TEXTS = {
       quickSubtitle: 'Dùng navbar hoặc chọn nhanh các thẻ bên dưới để đi đến trang bạn cần.',
       quickLinks: [
         makeQuickLink('🏠', 'Khám phá phòng', 'Tìm phòng công khai, góc chill và không gian tụ họp.'),
-        makeQuickLink('🖼️', 'Cat Gallery', 'Xem ảnh mèo đáng yêu, câu chuyện và khoảnh khắc cộng đồng.'),
-        makeQuickLink('🏆', 'Bảng xếp hạng', 'Xem ai đang hoạt động, chơi game và tích điểm nhiều nhất.'),
+        makeQuickLink('🖼️', 'MewSeum', 'Xem ảnh mèo đáng yêu, câu chuyện và khoảnh khắc cộng đồng.'),
+        makeQuickLink('🏆', 'TopPaw', 'Xem ai đang hoạt động, chơi game và tích điểm nhiều nhất.'),
         makeQuickLink('🛒', 'Meow Shop', 'Mua item avatar, theme và các món đồ trang trí nhỏ xinh.'),
       ],
       reelTitle: 'Vòng lặp chuyển động nhỏ',

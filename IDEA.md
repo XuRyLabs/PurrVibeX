@@ -141,7 +141,7 @@ Not just a social network — but a playful, relaxing space for connecting with 
 
 ## 🎯 New Core Features (Frontend Completed)
 
-### 🏆 Hall of Paws (Leaderboard)
+### 🏆 TopPaw (Leaderboard)
 - **Status**: ✅ Frontend UI complete (podium, ranked list, highlight current user)
 - Top cats ranked by Meow Points
 - Weekly / monthly leaderboard reset

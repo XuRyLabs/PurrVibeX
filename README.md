@@ -20,7 +20,7 @@ It's not just a social network — it's a vibe. 🐱✨
 | 🎧 BeatPaws | ✅ | Queue songs and listen in sync with everyone (player UI + queue) |
 | 🐱 MeowDex | ✅ | Your personal cat ID card — profile, badges, activity feed |
 | 🖼️ Cat Gallery | ✅ | Share real cat photos (masonry, filters, likes) |
-| 🏆 Hall of Paws | ✅ | Meow Points leaderboard with podium (top 3) |
+| 🏆 TopPaw | ✅ | Meow Points leaderboard with podium (top 3) |
 | 🛍️ ClawMart | ✅ | Shop for avatar items, stickers, themes (with Meow Points) |
 | 🔐 Authentication | ✅ | Google OAuth + Email/Password, Firebase integration |
 | 🌙 Dark Mode | ✅ | Full light/dark theme toggle (PurrLight / PurrDark) |
