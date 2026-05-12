@@ -26,10 +26,12 @@ jobs:
         run: railway up --service backend --detach
 
       - name: Wait for backend health endpoint
-        if: ${{ secrets.BACKEND_HEALTHCHECK_URL != '' }}
+        if: ${{ env.BACKEND_HEALTHCHECK_URL != '' }}
+        env:
+          BACKEND_HEALTHCHECK_URL: ${{ secrets.BACKEND_HEALTHCHECK_URL }}
         run: |
           for i in {1..20}; do
-            if curl -fsS "${{ secrets.BACKEND_HEALTHCHECK_URL }}" > /dev/null; then
+            if curl -fsS "$BACKEND_HEALTHCHECK_URL" > /dev/null; then
               echo "Backend health check passed"
               exit 0
             fi
