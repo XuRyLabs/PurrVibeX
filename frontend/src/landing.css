@@ -1394,3 +1394,9 @@ html[data-theme="dark"] .auth-input::placeholder {
   color: #9f89b5;
 }
 
+.cat-illustration {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+}

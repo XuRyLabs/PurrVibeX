@@ -11,6 +11,9 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GameController;
 
+// Health check (Railway / uptime monitoring)
+Route::get('/health', fn() => response()->json(['status' => 'ok', 'app' => config('app.name')]));
+
 // Auth
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);

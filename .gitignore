@@ -52,6 +52,8 @@ docker-compose.override.yml
 dist/
 build/
 
-# Config
-.env.example (only at root for reference)
+# Firebase local cache
+.firebase/
 
+# Config
+# .env.example is kept in repo for onboarding docs

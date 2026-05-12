@@ -356,7 +356,7 @@ button:hover,
 
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 36px;
   align-items: center;
   padding: 56px 0 28px;
@@ -488,7 +488,7 @@ button:hover,
 
 .cat-card {
   position: relative;
-  width: min(100%, 430px);
+  width: min(100%, 600px);
   padding: 22px 22px 18px;
   border-radius: 32px;
   background: rgba(255, 255, 255, 0.84);
