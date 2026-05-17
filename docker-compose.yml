@@ -1,42 +1,42 @@
 services:
-  backend:
-    image: php:8.3-cli
-    working_dir: /var/www/html
-    volumes:
-      - ./backend:/var/www/html
-    ports:
-      - "8000:8000"
-    command: php artisan serve --host=0.0.0.0 --port=8000
-    depends_on:
-      - db
-      - soketi
+  # backend:
+  #   image: php:8.3-cli
+  #   working_dir: /var/www/html
+  #   volumes:
+  #     - ./backend:/var/www/html
+  #   ports:
+  #     - "8000:8000"
+  #   command: php artisan serve --host=0.0.0.0 --port=8000
+  #   depends_on:
+  #     - db
+  #     - soketi
 
-  frontend:
-    image: node:20-alpine
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    ports:
-      - "5173:5173"
-    command: npm run dev -- --host
+  # frontend:
+  #   image: node:20-alpine
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend:/app
+  #   ports:
+  #     - "5173:5173"
+  #   command: npm run dev -- --host
 
-  soketi:
-    image: quay.io/soketi/soketi:latest
-    ports:
-      - "6001:6001"
-    environment:
-      SOKETI_DEFAULT_APP_ID: meowworld
-      SOKETI_DEFAULT_APP_KEY: meowkey
-      SOKETI_DEFAULT_APP_SECRET: meowsecret
+  # soketi:
+  #   image: quay.io/soketi/soketi:latest
+  #   ports:
+  #     - "6001:6001"
+  #   environment:
+  #     SOKETI_DEFAULT_APP_ID: meowworld
+  #     SOKETI_DEFAULT_APP_KEY: meowkey
+  #     SOKETI_DEFAULT_APP_SECRET: meowsecret
 
   db:
     image: postgres:15-alpine
     environment:
-      POSTGRES_DB: meowworld
-      POSTGRES_USER: meow
-      POSTGRES_PASSWORD: meow1234
+      POSTGRES_DB: purrvibex_db
+      POSTGRES_USER: purrvibex_db
+      POSTGRES_PASSWORD: purrvibex_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
