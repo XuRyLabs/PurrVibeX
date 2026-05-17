@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Users / Profile
     Route::get('/users/{user}',       [UserController::class, 'show']);
-    Route::put('/users/me',           [UserController::class, 'update']);
+    Route::put('/users/me',           [UserController::class, 'updateProfile']);
     Route::patch('/users/me/mood',    [UserController::class, 'updateMood']);
 
     // Friends
