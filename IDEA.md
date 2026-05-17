@@ -4,7 +4,6 @@
 
 ---
 
-
 ## 🎯 Vision
 
 A **social playground** for cat lovers.  
