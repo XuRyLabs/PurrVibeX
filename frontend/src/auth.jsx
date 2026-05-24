@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { firebaseAuth, isFirebaseConfigured } from './firebase.jsx';
+import { authService } from './services/authService.js';
 
 const AuthContext = createContext(null);
 
@@ -38,6 +39,7 @@ function toUserProfile(nextUser) {
   return {
     uid: nextUser.uid,
     email: nextUser.email || '',
+    username: nextUser.email?.split('@')[0] || 'catuser',
     displayName: nextUser.displayName || nextUser.email?.split('@')[0] || 'Cat User',
     photoURL: nextUser.photoURL || '',
     providerId: nextUser.providerData?.[0]?.providerId || 'password',
@@ -64,6 +66,32 @@ export function AuthProvider({ children }) {
       setUserProfile(toUserProfile(nextUser));
       setLoading(false);
       setError('');
+
+      // Bridge Firebase session into backend token for protected API routes.
+      if (nextUser?.email) {
+        authService
+          .firebaseLogin({
+            email: nextUser.email,
+            display_name: nextUser.displayName || nextUser.email.split('@')[0],
+            avatar_url: nextUser.photoURL || null,
+          })
+          .then(({ data }) => {
+            if (data?.token) {
+              localStorage.setItem('token', data.token);
+            }
+            if (data?.user?.username) {
+              setUserProfile((prev) => ({
+                ...(prev || toUserProfile(nextUser)),
+                username: data.user.username,
+              }));
+            }
+          })
+          .catch(() => {
+            // Keep Firebase auth usable even if backend token bootstrap fails.
+          });
+      } else {
+        localStorage.removeItem('token');
+      }
     });
 
     return unsubscribe;
@@ -134,6 +162,7 @@ export function AuthProvider({ children }) {
         await signOut(firebaseAuth);
         setUser(null);
         setUserProfile(null);
+        localStorage.removeItem('token');
       },
       resetPassword: async (email) => {
         setError('');

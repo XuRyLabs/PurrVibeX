@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth.jsx';
-import { useLanguage } from '../i18n.jsx';
+import { useLanguage } from '../i18n';
+import { authService } from '../services/authService.js';
 
 const GoogleIcon = () => (
   <svg className="auth-google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -19,8 +20,20 @@ export default function Login() {
   const { strings } = useLanguage();
   const auth = strings.auth;
   const fromPath = location.state?.from?.pathname;
-  const getDestination = (u) =>
-    fromPath && fromPath !== '/login' ? fromPath : `/meowdex/${u.uid}`;
+  const getDestination = async (u) => {
+    if (fromPath && fromPath !== '/login') return fromPath;
+    try {
+      const { data } = await authService.firebaseLogin({
+        email: u?.email,
+        display_name: u?.displayName || u?.email?.split('@')[0],
+        avatar_url: u?.photoURL || null,
+      });
+      const username = data?.user?.username || u?.email?.split('@')[0] || 'me';
+      return `/purrdex/${username}`;
+    } catch {
+      return `/purrdex/${u?.email?.split('@')[0] || 'me'}`;
+    }
+  };
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,14 +42,21 @@ export default function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => { clearError(); }, [clearError]);
-  useEffect(() => { if (user) navigate(getDestination(user), { replace: true }); }, [user]);
+  useEffect(() => {
+    if (!user) return;
+    (async () => {
+      const to = await getDestination(user);
+      navigate(to, { replace: true });
+    })();
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLocalMessage(''); setIsSubmitting(true);
     try {
       const u = await login(email, password);
-      navigate(getDestination(u), { replace: true });
+      const to = await getDestination(u);
+      navigate(to, { replace: true });
     } catch (err) { setLocalMessage(err.message); }
     finally { setIsSubmitting(false); }
   };
@@ -45,7 +65,8 @@ export default function Login() {
     setLocalMessage(''); setIsSubmitting(true);
     try {
       const u = await loginWithGoogle();
-      navigate(getDestination(u), { replace: true });
+      const to = await getDestination(u);
+      navigate(to, { replace: true });
     } catch (err) { setLocalMessage(err.message); }
     finally { setIsSubmitting(false); }
   };

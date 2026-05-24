@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../i18n.jsx';
+import { useLanguage } from '../i18n';
 import { useAuth } from '../auth.jsx';
 import { useMouseParallax } from '../hooks/useMouseParallax.js';
 import InViewSection from '../components/common/InViewSection.jsx';

@@ -19,7 +19,7 @@ test.describe("Login - Critical Test Cases", () => {
       loginData.validUser.password
     );
 
-    await expect(page.getByText("MeowDex")).toBeVisible();
+    await expect(page.getByText("PurrDex")).toBeVisible();
   });
 
   // ─── Invalid Credentials ─────────────────────────────────────────────────────
@@ -130,9 +130,9 @@ test.describe("Login - Critical Test Cases", () => {
     await page.goto("https://purrvibex.web.app/dashboard");
 
     // SPA keeps the URL but renders the unauthenticated view — Login link is
-    // visible and no protected content (MeowDex) is shown
+    // visible and no protected content (PurrDex) is shown
     await expect(loginPage.loginLink).toBeVisible();
-    await expect(page.getByText("MeowDex")).not.toBeVisible();
+    await expect(page.getByText("PurrDex")).not.toBeVisible();
   });
 
   test("TC12 - User remains on login page after failed login attempt", async ({ page }) => {
@@ -142,7 +142,7 @@ test.describe("Login - Critical Test Cases", () => {
     );
 
     // Must NOT navigate to the authenticated view
-    await expect(page.getByText("MeowDex")).not.toBeVisible();
+    await expect(page.getByText("PurrDex")).not.toBeVisible();
   });
 });
 

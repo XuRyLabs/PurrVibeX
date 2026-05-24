@@ -71,7 +71,7 @@ Not just a social network — but a playful, relaxing space for connecting with 
 
 ---
 
-### 🐱 MeowDex (Cat Profile)
+### 🐱 PurrDex (Cat Profile)
 - **Status**: ✅ Frontend UI complete (profile card, badges, activity feed)
 - A "cat ID card"-style personal profile
 - Shows: cat avatar, name, bio, mood, badges, cat photo collection

@@ -19,7 +19,7 @@ It's not just a social network — it's a vibe. 🐱✨
 |----------------------|--------|------------------------------------------------------------------|
 | 🏠 PurrLounge        | ✅      | Join themed rooms to chat, chill, play games, or listen to music |
 | 🎧 BeatPaws          | ✅      | Queue songs and listen in sync with everyone (player UI + queue) |
-| 🐱 MeowDex           | ✅      | Your personal cat ID card — profile, badges, activity feed       |
+| 🐱 PurrDex           | ✅      | Your personal cat ID card — profile, badges, activity feed       |
 | 🖼️ Cat Gallery      | ✅      | Share real cat photos (masonry, filters, likes)                  |
 | 🏆 TopPaw            | ✅      | Meow Points leaderboard with podium (top 3)                      |
 | 🛍️ ClawMart         | ✅      | Shop for avatar items, stickers, themes (with Meow Points)       |
@@ -125,8 +125,8 @@ Spins up backend + frontend + database + WebSocket server in one command.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/meow-world.git
-cd meow-world
+git clone https://github.com/your-username/purrvibex.git
+cd purrvibex
 
 # 2. Copy environment file
 cp .env.example .env
@@ -275,7 +275,7 @@ curl -i https://<your-frontend-domain>
 ## 📁 Project Structure
 
 ```
-meow-world/
+purrvibex/
 ├── backend/                  # Laravel API (PHP)
 │   ├── app/Http/Controllers/ # Auth, User, Room, Chat, Music, Game, Shop, Gallery
 │   ├── app/Models/           # User, Room, Message, Friendship, MusicQueue, ShopItem, CatPhoto, GameSession

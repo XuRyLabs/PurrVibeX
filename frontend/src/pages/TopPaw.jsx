@@ -1,6 +1,6 @@
 import InViewSection from '../components/common/InViewSection.jsx';
 import { useAuth } from '../auth.jsx';
-import { useLanguage } from '../i18n.jsx';
+import { useLanguage } from '../i18n';
 import './pages.css';
 
 
