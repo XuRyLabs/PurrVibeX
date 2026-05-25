@@ -85,7 +85,7 @@ jobs:
             "${environment_args[@]}"
 
       - name: Wait for backend health endpoint
-        if: ${{ env.BACKEND_HEALTHCHECK_URL != '' }}
+        if: env.BACKEND_HEALTHCHECK_URL
         run: |
           for i in {1..20}; do
             if curl -fsS "$BACKEND_HEALTHCHECK_URL" > /dev/null; then
