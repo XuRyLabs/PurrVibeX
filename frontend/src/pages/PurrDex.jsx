@@ -94,6 +94,7 @@ export default function Profile() {
     timezone: backendProfile?.timezone || '',
     visibility: backendProfile?.profile_visibility || 'public',
     purrPoints: Number(backendProfile?.purr_points ?? 0),
+    postCount: Number(backendProfile?.post_count ?? 0),
     friendCount: Number(backendProfile?.friend_count ?? 0),
     zodiacSign: backendProfile?.zodiac_sign || 'Unknown',
     zodiacIcon: backendProfile?.zodiac_icon || '✨',
@@ -135,7 +136,10 @@ export default function Profile() {
               </div>
 
               <h2 className="profile-name">{merged.displayName}</h2>
-              <p className="profile-handle">{merged.username ? `@${merged.username}` : '@catuser'}</p>
+              <div className="profile-handle-row">
+                <p className="profile-handle">{merged.username ? `@${merged.username}` : '@catuser'}</p>
+                <span className="profile-mode-badge" title={modeTitle} aria-label={modeTitle}>{loadingBackend ? '…' : modeIcon}</span>
+              </div>
 
               <div className="profile-badge-row">
                 <CountryBadge country={merged.country} />
@@ -151,8 +155,8 @@ export default function Profile() {
                   <span>{profile.purrPointLabel}</span>
                 </div>
                 <div className="profile-stat">
-                  <strong className="profile-mode-icon" title={modeTitle}>{loadingBackend ? '…' : modeIcon}</strong>
-                  <span>{profile.modeLabel}</span>
+                  <strong>{loadingBackend ? '…' : merged.postCount.toLocaleString()}</strong>
+                  <span>{profile.postsLabel}</span>
                 </div>
                 <div className="profile-stat">
                   <strong>{loadingBackend ? '…' : merged.friendCount}</strong>

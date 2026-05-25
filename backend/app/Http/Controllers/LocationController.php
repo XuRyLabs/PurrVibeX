@@ -34,7 +34,7 @@ class LocationController extends Controller
         $res = Http::timeout(12)->get('https://provinces.open-api.vn/api/v2/p/');
 
         if (!$res->ok()) {
-            return response()->json(['cities' => []]);
+            return response()->json(['error' => 'Failed to fetch cities {$res}', 'cities' => []]);
         }
 
         $cities = collect($res->json())
@@ -75,26 +75,6 @@ class LocationController extends Controller
             ->values();
 
         return response()->json(['wards' => $wards]);
-    }
-
-    private function normalizeText(string $value): string
-    {
-        if ($value === '') {
-            return '';
-        }
-
-        // Already clean UTF-8 string.
-        if (mb_check_encoding($value, 'UTF-8') && !preg_match('/[ÃÄá»]/u', $value)) {
-            return $value;
-        }
-
-        // Try latin1 -> utf8 repair for mojibake strings.
-        $fixed = @mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
-        if (is_string($fixed) && $fixed !== '' && mb_check_encoding($fixed, 'UTF-8')) {
-            return $fixed;
-        }
-
-        return $value;
     }
 
     /**

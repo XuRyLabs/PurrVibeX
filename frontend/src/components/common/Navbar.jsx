@@ -64,6 +64,8 @@ export default function Navbar() {
   const displayName =
     userProfile?.displayName || user?.displayName || user?.email?.split('@')[0] || 'Cat User';
   const profileSlug = userProfile?.username || user?.email?.split('@')[0] || 'me';
+  const avatarValue = userProfile?.photoURL || user?.photoURL || '';
+  const hasImageAvatar = /^https?:\/\//i.test(avatarValue);
 
   return (
     <>
@@ -103,13 +105,17 @@ export default function Navbar() {
                     aria-expanded={menuOpen}
                     onClick={() => setMenuOpen(o => !o)}
                   >
-                    {userProfile?.photoURL ? (
+                    {avatarValue ? (
+                      hasImageAvatar ? (
                       <img
-                        src={userProfile.photoURL}
+                        src={avatarValue}
                         alt={displayName}
                         className="user-chip-avatar"
                         referrerPolicy="no-referrer"
                       />
+                      ) : (
+                        <span className="user-chip-emoji">{avatarValue}</span>
+                      )
                     ) : (
                       <span className="user-chip-emoji">🐱</span>
                     )}

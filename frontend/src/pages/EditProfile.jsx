@@ -13,7 +13,6 @@ import './pages.css';
 const CAT_EMOJIS = ['🐱', '😸', '🐾', '😺', '🙀', '😻', '🐈', '🐈‍⬛', '😼', '😽', '🐅', '🦁'];
 
 const GENDERS = [
-  { value: '',                 label: '—' },
   { value: 'male',            label: 'genderMale' },
   { value: 'female',          label: 'genderFemale' },
   { value: 'prefer_not_to_say', label: 'genderPreferNot' },
@@ -33,6 +32,65 @@ const LOCALES = [
   { value: 'zh', label: '中文' },
   { value: 'fr', label: 'Français' },
 ];
+
+const TIMEZONE_FALLBACK = [
+  'UTC',
+  'Asia/Ho_Chi_Minh',
+  'Asia/Bangkok',
+  'Asia/Tokyo',
+  'Asia/Seoul',
+  'Asia/Singapore',
+  'Europe/London',
+  'Europe/Paris',
+  'America/New_York',
+  'America/Los_Angeles',
+  'Australia/Sydney',
+];
+
+function normalizeUtcOffset(rawOffset) {
+  if (!rawOffset) return 'UTC+00:00';
+
+  const cleaned = rawOffset.replace(/^GMT/i, '').trim();
+  if (!cleaned || cleaned === '0' || cleaned === '+0' || cleaned === '-0') {
+    return 'UTC+00:00';
+  }
+
+  // Handles +7, -4, +07:00, -0430 formats.
+  const match = cleaned.match(/^([+-])(\d{1,2})(?::?(\d{2}))?$/);
+  if (!match) return `UTC${cleaned}`;
+
+  const sign = match[1];
+  const hours = String(match[2]).padStart(2, '0');
+  const minutes = String(match[3] || '00').padStart(2, '0');
+  return `UTC${sign}${hours}:${minutes}`;
+}
+
+function getUtcOffsetLabel(timeZone) {
+  try {
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone,
+      timeZoneName: 'shortOffset',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    const parts = formatter.formatToParts(new Date());
+    const tzNamePart = parts.find((part) => part.type === 'timeZoneName')?.value;
+    return normalizeUtcOffset(tzNamePart);
+  } catch {
+    return 'UTC+00:00';
+  }
+}
+
+function getUtcOffsetMinutes(offsetLabel) {
+  const match = offsetLabel.match(/^UTC([+-])(\d{2}):(\d{2})$/);
+  if (!match) return 0;
+
+  const sign = match[1] === '-' ? -1 : 1;
+  const hours = Number(match[2]);
+  const minutes = Number(match[3]);
+
+  return sign * (hours * 60 + minutes);
+}
 
 // ── Validation ───────────────────────────────────────────────────────────────
 function validate(form, original, t) {
@@ -123,10 +181,28 @@ function WarnBanner({ message }) {
 // ══════════════════════════════════════════════════════════════════════════════
 export default function EditProfile() {
   const navigate = useNavigate();
-  const { user, userProfile } = useAuth();
+  const { user, userProfile, patchUserProfile } = useAuth();
   const { strings, lang } = useLanguage();
   const t = strings.editProfile;
   const countryOptions = useMemo(() => getCountryOptions(lang), [lang]);
+  const timezoneOptions = useMemo(() => {
+    if (typeof Intl !== 'undefined' && typeof Intl.supportedValuesOf === 'function') {
+      return Intl.supportedValuesOf('timeZone');
+    }
+    return TIMEZONE_FALLBACK;
+  }, []);
+  const timezoneSelectOptions = useMemo(() => {
+    return timezoneOptions
+      .map((tz) => {
+        const offsetLabel = getUtcOffsetLabel(tz);
+        return {
+          value: tz,
+          label: `(${offsetLabel}) ${tz}`,
+          offset: getUtcOffsetMinutes(offsetLabel),
+        };
+      })
+      .sort((a, b) => a.offset - b.offset || a.value.localeCompare(b.value));
+  }, [timezoneOptions]);
 
   const [form, setForm] = useState({
     display_name: '',
@@ -191,6 +267,7 @@ export default function EditProfile() {
     ensureBackendToken()
       .then(() => userService.getMe())
       .then(({ data }) => {
+        patchUserProfile(data);
         const prof = {
           display_name:     data.display_name || '',
           username:         data.username || '',
@@ -344,7 +421,8 @@ export default function EditProfile() {
     setSaving(true);
     try {
       await ensureBackendToken();
-      await userService.updateProfile(form);
+      const { data } = await userService.updateProfile(form);
+      patchUserProfile(data?.user || form);
       setSuccess(true);
       setOriginal(form);
       setTimeout(() => {
@@ -372,6 +450,7 @@ export default function EditProfile() {
   // ── Cooldown / lock info ─────────────────────────────────────────────────
   const usernameCooldownDays = original ? getUsernameCooldownDays(original.username_updated_at) : 0;
   const emailLocked = original?.email_changed === true;
+  const timezoneExists = !form.timezone || timezoneOptions.includes(form.timezone);
 
   // ── Avatar display ───────────────────────────────────────────────────────
   const isEmojiAvatar = form.avatar_url && !form.avatar_url.startsWith('http');
@@ -638,7 +717,7 @@ export default function EditProfile() {
             <div className="ep-row-3">
               <Field label={t.locale} error={errors.locale}>
                 <select className="ep-input ep-select" value={form.locale} onChange={set('locale')}>
-                  <option value="">—</option>
+                  <option value="" disabled>—</option>
                   {LOCALES.map(({ value, label }) => (
                     <option key={value} value={value}>{label}</option>
                   ))}
@@ -646,7 +725,13 @@ export default function EditProfile() {
               </Field>
 
               <Field label={t.timezone} error={errors.timezone}>
-                <input className="ep-input" type="text" value={form.timezone} onChange={set('timezone')} placeholder="Asia/Ho_Chi_Minh" />
+                <select className="ep-input ep-select" value={form.timezone} onChange={set('timezone')}>
+                  <option value="" disabled>—</option>
+                  {!timezoneExists && <option value={form.timezone}>({getUtcOffsetLabel(form.timezone)}) {form.timezone}</option>}
+                  {timezoneSelectOptions.map((tz) => (
+                    <option key={tz.value} value={tz.value}>{tz.label}</option>
+                  ))}
+                </select>
               </Field>
 
               <Field label={t.profileVisibility} error={errors.profile_visibility}>

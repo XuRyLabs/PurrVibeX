@@ -47,6 +47,25 @@ function toUserProfile(nextUser) {
   };
 }
 
+function mergeBackendIntoProfile(prev, backendUser, nextUser) {
+  if (!backendUser) return prev;
+
+  const base = prev || toUserProfile(nextUser) || {};
+
+  return {
+    ...base,
+    username: backendUser.username || base.username || nextUser?.email?.split('@')[0] || 'catuser',
+    displayName:
+      backendUser.display_name ||
+      backendUser.displayName ||
+      base.displayName ||
+      nextUser?.displayName ||
+      nextUser?.email?.split('@')[0] ||
+      'Cat User',
+    photoURL: backendUser.avatar_url || backendUser.photoURL || base.photoURL || nextUser?.photoURL || '',
+  };
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
@@ -72,18 +91,13 @@ export function AuthProvider({ children }) {
         authService
           .firebaseLogin({
             email: nextUser.email,
-            display_name: nextUser.displayName || nextUser.email.split('@')[0],
-            avatar_url: nextUser.photoURL || null,
           })
           .then(({ data }) => {
             if (data?.token) {
               localStorage.setItem('token', data.token);
             }
-            if (data?.user?.username) {
-              setUserProfile((prev) => ({
-                ...(prev || toUserProfile(nextUser)),
-                username: data.user.username,
-              }));
+            if (data?.user) {
+              setUserProfile((prev) => mergeBackendIntoProfile(prev, data.user, nextUser));
             }
           })
           .catch(() => {
@@ -174,6 +188,9 @@ export function AuthProvider({ children }) {
           setError(message);
           throw new Error(message);
         }
+      },
+      patchUserProfile: (backendUser) => {
+        setUserProfile((prev) => mergeBackendIntoProfile(prev, backendUser, user));
       },
     }),
     [user, userProfile, loading, error, googleProvider]

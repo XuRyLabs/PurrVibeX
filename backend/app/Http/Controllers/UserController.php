@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatPhoto;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class UserController extends Controller
 {
@@ -25,6 +27,7 @@ class UserController extends Controller
     public function show(User $user): \Illuminate\Http\JsonResponse
     {
         $zodiac = $this->resolveZodiac($user->date_of_birth?->toDateString());
+        $postCount = $this->resolvePostCount($user);
 
         return response()->json([
             'id'                  => $user->id,
@@ -51,6 +54,7 @@ class UserController extends Controller
             'profile_visibility'  => $user->profile_visibility,
             'purr_points'         => (int) ($user->purr_points ?? 0),
             'friend_count'        => (int) ($user->friend_count ?? 0),
+            'post_count'          => (int) $postCount,
             'zodiac_sign'         => $zodiac['name'],
             'zodiac_icon'         => $zodiac['icon'],
             'last_seen'           => $user->last_seen,
@@ -224,6 +228,26 @@ class UserController extends Controller
             $md >= 219  && $md <= 320  => ['name' => 'Pisces',      'icon' => '♓'],
             default => ['name' => 'Unknown', 'icon' => '✨'],
         };
+    }
+
+    private function resolvePostCount(?User $user): int
+    {
+        if (!$user) {
+            return 0;
+        }
+
+        $table = (new CatPhoto())->getTable();
+
+        // Keep profile endpoints working even before photo table migrations are applied.
+        if (!Schema::hasTable($table)) {
+            return 0;
+        }
+
+        try {
+            return (int) CatPhoto::query()->where('user_id', $user->id)->count();
+        } catch (\Throwable) {
+            return 0;
+        }
     }
 
     private function normalizeCountryCode(mixed $value): ?string

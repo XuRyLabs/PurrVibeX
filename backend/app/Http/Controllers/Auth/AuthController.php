@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\CatPhoto;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class AuthController extends Controller
 {
@@ -53,14 +55,16 @@ class AuthController extends Controller
                 'friend_count' => 0,
             ]);
         } else {
+            // Do not override profile fields every Firebase re-auth; only backfill when empty.
             $user->update([
-                'display_name' => $displayName,
-                'avatar_url' => $validated['avatar_url'] ?? $user->avatar_url,
+                'display_name' => $user->display_name ?: $displayName,
+                'avatar_url' => $user->avatar_url ?: ($validated['avatar_url'] ?? null),
                 'last_seen' => now(),
             ]);
         }
 
         $token = $user->createToken('frontend')->plainTextToken;
+        $postCount = $this->resolvePostCount($user);
 
         return response()->json([
             'token' => $token,
@@ -72,6 +76,7 @@ class AuthController extends Controller
                 'avatar_url' => $user->avatar_url,
                 'purr_points' => $user->purr_points,
                 'friend_count' => $user->friend_count,
+                'post_count' => (int) $postCount,
             ],
         ]);
     }
@@ -87,6 +92,7 @@ class AuthController extends Controller
     {
         $user = $request->user();
         $zodiac = $this->resolveZodiac($user?->date_of_birth?->toDateString());
+        $postCount = $this->resolvePostCount($user);
 
         return response()->json([
             'id' => $user->id,
@@ -112,6 +118,7 @@ class AuthController extends Controller
             'profile_visibility' => $user->profile_visibility,
             'purr_points' => (int) ($user->purr_points ?? 0),
             'friend_count' => (int) ($user->friend_count ?? 0),
+            'post_count' => (int) $postCount,
             'zodiac_sign' => $zodiac['name'],
             'zodiac_icon' => $zodiac['icon'],
             'last_seen' => $user->last_seen,
@@ -131,6 +138,26 @@ class AuthController extends Controller
         }
 
         return $candidate;
+    }
+
+    private function resolvePostCount(?User $user): int
+    {
+        if (!$user) {
+            return 0;
+        }
+
+        $table = (new CatPhoto())->getTable();
+
+        // Some environments don't have the gallery table yet; avoid breaking auth endpoints.
+        if (!Schema::hasTable($table)) {
+            return 0;
+        }
+
+        try {
+            return (int) CatPhoto::query()->where('user_id', $user->id)->count();
+        } catch (\Throwable) {
+            return 0;
+        }
     }
 
     private function resolveZodiac(?string $dob): array
