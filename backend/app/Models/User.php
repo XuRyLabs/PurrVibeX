@@ -2,31 +2,44 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
-use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-#[Fillable(['name', 'email', 'password'])]
-#[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    protected $table = 'meow_users';
+
+    // The meow_users table does not have created_at / updated_at columns.
+    public $timestamps = false;
+
+    protected $fillable = [
+        'display_name', 'email', 'email_changed',
+        'username', 'username_updated_at',
+        'phone',
+        'email_verified_at', 'avatar_url', 'bio',
+        'date_of_birth', 'gender',
+        'location', 'ward', 'city', 'country',
+        'website_url', 'social_twitter', 'social_instagram',
+        'locale', 'timezone', 'role', 'last_seen',
+        'profile_visibility', 'purr_points', 'friend_count',
+    ];
+
+    protected $hidden = ['remember_token'];
+
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'email_verified_at'   => 'datetime',
+            'date_of_birth'       => 'date',
+            'last_seen'           => 'datetime',
+            'username_updated_at' => 'datetime',
+            'email_changed'       => 'boolean',
+            'purr_points'         => 'integer',
+            'friend_count'        => 'integer',
         ];
     }
 }

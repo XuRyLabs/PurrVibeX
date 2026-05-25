@@ -57,3 +57,5 @@ build/
 
 # Config
 # .env.example is kept in repo for onboarding docs
+
+purrvibex-firebase-adminsdk-*.json

@@ -4,7 +4,7 @@ import App from './App';
 import './styles.css';
 import './landing.css';
 import './pages/pages.css';
-import { LanguageProvider } from './i18n.jsx';
+import { LanguageProvider } from './i18n';
 import { AuthProvider } from './auth.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

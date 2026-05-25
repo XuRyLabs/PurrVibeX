@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../i18n.jsx';
+import { useLanguage } from '../../i18n';
 import { useAuth } from '../../auth.jsx';
 import { useDarkMode } from '../../hooks/useDarkMode.js';
 
@@ -63,13 +63,15 @@ export default function Navbar() {
 
   const displayName =
     userProfile?.displayName || user?.displayName || user?.email?.split('@')[0] || 'Cat User';
+  const profileSlug = userProfile?.username || user?.email?.split('@')[0] || 'me';
+  const avatarValue = userProfile?.photoURL || user?.photoURL || '';
+  const hasImageAvatar = /^https?:\/\//i.test(avatarValue);
 
   return (
     <>
       <header className="navbar">
         <div className="navbar-inner">
-        {/* Brand — goes to MeowDex when logged in, home when guest */}
-        <Link to={user ? `/meowdex/${user.uid}` : '/'} className="brand" aria-label="PurrVibeX home">
+        <Link to={user ? `/purrdex/${profileSlug}` : '/'} className="brand" aria-label="PurrVibeX home">
             <span className="brand-mark">🐾</span>
             <span>
               PurrVibeX
@@ -103,13 +105,17 @@ export default function Navbar() {
                     aria-expanded={menuOpen}
                     onClick={() => setMenuOpen(o => !o)}
                   >
-                    {userProfile?.photoURL ? (
+                    {avatarValue ? (
+                      hasImageAvatar ? (
                       <img
-                        src={userProfile.photoURL}
+                        src={avatarValue}
                         alt={displayName}
                         className="user-chip-avatar"
                         referrerPolicy="no-referrer"
                       />
+                      ) : (
+                        <span className="user-chip-emoji">{avatarValue}</span>
+                      )
                     ) : (
                       <span className="user-chip-emoji">🐱</span>
                     )}
@@ -122,7 +128,7 @@ export default function Navbar() {
                   {menuOpen && (
                     <div className="user-dropdown" role="menu">
                     <Link
-                      to={`/meowdex/${user.uid}`}
+                      to={`/purrdex/${profileSlug}`}
                       className="user-dropdown-item"
                         role="menuitem"
                         onClick={() => setMenuOpen(false)}

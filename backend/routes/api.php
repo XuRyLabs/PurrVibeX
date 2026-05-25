@@ -10,11 +10,17 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\LocationController;
 
 
 // Auth
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
+Route::post('/firebase-login', [AuthController::class, 'firebaseLogin']);
+
+// Public profile by username
+Route::get('/users/by-username/{username}', [UserController::class, 'showByUsername'])
+    ->where('username', '[A-Za-z0-9_-]{3,30}');
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -24,8 +30,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Users / Profile
     Route::get('/users/{user}',       [UserController::class, 'show']);
-    Route::put('/users/me',           [UserController::class, 'update']);
+    Route::put('/users/me',           [UserController::class, 'updateProfile']);
     Route::patch('/users/me/mood',    [UserController::class, 'updateMood']);
+
+    // Location data (country -> city -> ward)
+    Route::get('/locations/countries/{country}/cities', [LocationController::class, 'cities']);
+    Route::get('/locations/countries/{country}/cities/{cityCode}/wards', [LocationController::class, 'wards']);
 
     // Friends
     Route::get('/friends',                        [FriendController::class, 'index']);
@@ -69,4 +79,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/gallery/{photo}/like', [GalleryController::class, 'like']);
     Route::delete('/gallery/{photo}',    [GalleryController::class, 'destroy']);
 });
-

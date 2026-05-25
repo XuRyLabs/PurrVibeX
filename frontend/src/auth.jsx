@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { firebaseAuth, isFirebaseConfigured } from './firebase.jsx';
+import { authService } from './services/authService.js';
 
 const AuthContext = createContext(null);
 
@@ -38,10 +39,30 @@ function toUserProfile(nextUser) {
   return {
     uid: nextUser.uid,
     email: nextUser.email || '',
+    username: nextUser.email?.split('@')[0] || 'catuser',
     displayName: nextUser.displayName || nextUser.email?.split('@')[0] || 'Cat User',
     photoURL: nextUser.photoURL || '',
     providerId: nextUser.providerData?.[0]?.providerId || 'password',
     emailVerified: Boolean(nextUser.emailVerified),
+  };
+}
+
+function mergeBackendIntoProfile(prev, backendUser, nextUser) {
+  if (!backendUser) return prev;
+
+  const base = prev || toUserProfile(nextUser) || {};
+
+  return {
+    ...base,
+    username: backendUser.username || base.username || nextUser?.email?.split('@')[0] || 'catuser',
+    displayName:
+      backendUser.display_name ||
+      backendUser.displayName ||
+      base.displayName ||
+      nextUser?.displayName ||
+      nextUser?.email?.split('@')[0] ||
+      'Cat User',
+    photoURL: backendUser.avatar_url || backendUser.photoURL || base.photoURL || nextUser?.photoURL || '',
   };
 }
 
@@ -64,6 +85,27 @@ export function AuthProvider({ children }) {
       setUserProfile(toUserProfile(nextUser));
       setLoading(false);
       setError('');
+
+      // Bridge Firebase session into backend token for protected API routes.
+      if (nextUser?.email) {
+        authService
+          .firebaseLogin({
+            email: nextUser.email,
+          })
+          .then(({ data }) => {
+            if (data?.token) {
+              localStorage.setItem('token', data.token);
+            }
+            if (data?.user) {
+              setUserProfile((prev) => mergeBackendIntoProfile(prev, data.user, nextUser));
+            }
+          })
+          .catch(() => {
+            // Keep Firebase auth usable even if backend token bootstrap fails.
+          });
+      } else {
+        localStorage.removeItem('token');
+      }
     });
 
     return unsubscribe;
@@ -134,6 +176,7 @@ export function AuthProvider({ children }) {
         await signOut(firebaseAuth);
         setUser(null);
         setUserProfile(null);
+        localStorage.removeItem('token');
       },
       resetPassword: async (email) => {
         setError('');
@@ -145,6 +188,9 @@ export function AuthProvider({ children }) {
           setError(message);
           throw new Error(message);
         }
+      },
+      patchUserProfile: (backendUser) => {
+        setUserProfile((prev) => mergeBackendIntoProfile(prev, backendUser, user));
       },
     }),
     [user, userProfile, loading, error, googleProvider]

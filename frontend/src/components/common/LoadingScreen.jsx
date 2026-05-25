@@ -1,4 +1,4 @@
-import { useLanguage } from '../../i18n.jsx';
+import { useLanguage } from '../../i18n';
 import './LoadingScreen.css';
 
 export default function LoadingScreen() {

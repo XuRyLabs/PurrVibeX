@@ -7,7 +7,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import About from './pages/About';
-import MeowDex from './pages/MeowDex';
+import PurrDex from './pages/PurrDex';
+import EditProfile from './pages/EditProfile';
 import PurrLounge from './pages/PurrLounge';
 import BeatPaws from './pages/BeatPaws';
 import ClawMart from './pages/ClawMart';
@@ -30,10 +31,11 @@ function AppRoutes() {
         <Route path="/gallery" element={<Navigate to="/mewseum" replace />} />
         <Route path="/leaderboard" element={<Navigate to="/toppaw" replace />} />
         <Route path="/shop" element={<Navigate to="/clawmart" replace />} />
-        <Route path="/profile/:id" element={<Navigate to="/meowdex/:id" replace />} />
+        <Route path="/profile/:username" element={<Navigate to="/purrdex/:username" replace />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/meowdex/:id" element={<MeowDex />} />
+          <Route path="/purrdex/edit" element={<EditProfile />} />
+          <Route path="/purrdex/:username" element={<PurrDex />} />
           <Route path="/purrlounge" element={<PurrLounge />} />
           <Route path="/purrlounge/:id/beatpaws" element={<BeatPaws />} />
           <Route path="/clawmart" element={<ClawMart />} />

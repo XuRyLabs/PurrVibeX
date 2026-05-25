@@ -1,0 +1,487 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "rooms": "PurrLounge",
+    "gallery": "MewSeum",
+    "leaderboard": "TopPaw",
+    "shop": "ClawMart",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "switchTo": "Tiếng Việt",
+    "profile": "PurrDex",
+    "darkMode": "PurrDark",
+    "lightMode": "PurrLight",
+    "brandSubtitle": "Powered by XuRyLabs",
+    "settings": "Settings"
+  },
+  "home": {
+    "titleLead": "The internet just got way cuter —",
+    "titleHighlight": "welcome, cat lover!",
+    "intro": "Join a cozy room, share cat pics, and vibe together. No drama, just purrs. 🐱",
+    "primary": "Jump into PurrLounge ✨",
+    "secondary": "Explore the MewSeum 📸",
+    "badgeRow": ["Mega cozy vibes ☁️", "Live rooms 🟢", "Collect cute stuff 🎁"],
+    "heroTitle": "Imagine a tiny cat café — but make it the internet.",
+    "heroSubtitle": "Warm, playful, and a little magical. Come in, chill out. 🌸",
+    "heroNotes": [
+      "🌙 Buttery smooth transitions",
+      "🐱 Pastel-soft visuals that don't hurt your eyes",
+      "🎮 Activities built around being a cat person"
+    ],
+    "featureTitle": "Four things we're really proud of 🐾",
+    "featureSubtitle": "Tap, join, play. Everything stays simple.",
+    "highlights": [
+      {
+        "title": "🏠 PurrLounge",
+        "text": "Themed rooms for instant chill and easy convos."
+      },
+      {
+        "title": "🎧 BeatPaws",
+        "text": "Sync music with friends and play mini games in between."
+      },
+      {
+        "title": "🐾 PurrDex",
+        "text": "Customize your cat profile, mood, and style in seconds."
+      },
+      {
+        "title": "🛍️ ClawMart",
+        "text": "Spend points on cute themes, stickers, and shiny extras."
+      }
+    ],
+    "quickTitle": "Where do you wanna go? 🐾",
+    "quickSubtitle": "One tap and you're in.",
+    "quickGuestPrompt": "Log in to explore.",
+    "quickLinks": [
+      {
+        "icon": "🏠",
+        "title": "PurrLounge",
+        "description": "Find a cozy room, make yourself at home, and say hi to the regulars."
+      },
+      {
+        "icon": "🖼️",
+        "title": "MewSeum",
+        "description": "Scroll through community cat pics. Therapeutic. Scientifically proven.*"
+      },
+      {
+        "icon": "🏆",
+        "title": "TopPaw",
+        "description": "Who's the top cat? Check the board and see if you're on it."
+      },
+      {
+        "icon": "🛒",
+        "title": "ClawMart",
+        "description": "Treat yourself. You deserve that sparkly sticker pack."
+      }
+    ],
+    "reelTitle": "✨ Live right now",
+    "reelSubtitle": "Tiny live moments, all day.",
+    "loopingMotionTitle": "Always something going on",
+    "softTransitionsTitle": "Smooth like a cat landing",
+    "reelLabels": ["Blink 👁️", "Purrr 😸", "Play 🎮"],
+    "proofTitle": "Real cats, real opinions 😸",
+    "proofSubtitle": "Short reviews from our early cat crowd.",
+    "testimonials": [
+      {
+        "name": "Doraemon Meow",
+        "role": "Certified early adopter",
+        "quote": "Came for cat photos, stayed for hours. Instant cozy vibe.",
+        "avatar": "🐱✨"
+      },
+      {
+        "name": "Kmimi",
+        "role": "Self-proclaimed BeatPaws addict",
+        "quote": "Sync music with friends is smooth and surprisingly addictive.",
+        "avatar": "🎧🐾"
+      },
+      {
+        "name": "Mimi Purr",
+        "role": "PurrDex power user",
+        "quote": "Profile customization is fast, fun, and dangerously cute.",
+        "avatar": "📸😸"
+      }
+    ],
+    "footerTitle": "Crafted with 🩷 by XuRyLabs",
+    "footerText": "Soft colors, smooth motion, cat energy everywhere.",
+    "trustPills": ["Zero cringe UI 🙅", "Cat-approved 🐾", "Makes you go \"aww\" 🌸"]
+  },
+  "rooms": {
+    "title": "🏠 PurrLounge",
+    "subtitle": "Find your chill spot and vibe with others.",
+    "filters": { "all": "All", "live": "🟢 Live", "chill": "🌙 Chill" },
+    "liveLabel": "🟢 Live",
+    "chillLabel": "🌙 Chill",
+    "inRoom": "in room",
+    "list": [
+      {
+        "title": "Lo-fi Study Corner ☕",
+        "desc": "Quiet room for focus sessions and gentle music.",
+        "tag": "Live",
+        "live": true,
+        "members": ["🐱", "🐾", "😸"],
+        "count": 8
+      },
+      {
+        "title": "Gaming Night 🎮",
+        "desc": "Mini games, bracket challenges, and chaos.",
+        "tag": "Hot",
+        "live": true,
+        "members": ["😺", "🐱", "🐾"],
+        "count": 14
+      },
+      {
+        "title": "Cat Photo Swap 📸",
+        "desc": "Drop your best boss photos and get reactions.",
+        "tag": "New",
+        "live": true,
+        "members": ["🙀", "😸"],
+        "count": 5
+      },
+      {
+        "title": "Night Owl Vibes 🌙",
+        "desc": "Late night chat for all the nocturnal cats.",
+        "tag": "Chill",
+        "live": false,
+        "members": ["🐾"],
+        "count": 2
+      },
+      {
+        "title": "BeatPaws DJ Room 🎧",
+        "desc": "Take turns picking songs. No bad vibes.",
+        "tag": "Live",
+        "live": true,
+        "members": ["😸", "🐱", "🐾"],
+        "count": 11
+      },
+      {
+        "title": "Book & Tea Club 📚",
+        "desc": "Slow mornings, warm drinks, and book recs.",
+        "tag": "Chill",
+        "live": false,
+        "members": ["🐱", "😺"],
+        "count": 3
+      }
+    ]
+  },
+  "gallery": {
+    "title": "🖼️ MewSeum",
+    "subtitle": "Community-submitted boss photos. Drop yours anytime.",
+    "shareButton": "+ Share a photo",
+    "tags": ["All", "Cute", "Funny", "Cozy", "Wild"],
+    "photos": [
+      { "emoji": "🐱", "name": "Mochi napping", "user": "@doraemon.cat", "likes": 42 },
+      { "emoji": "😸", "name": "Big yawn energy", "user": "@mimi.purr", "likes": 38 },
+      { "emoji": "🐾", "name": "Paw close-up", "user": "@kuro.neko", "likes": 61 },
+      { "emoji": "😺", "name": "Window watcher", "user": "@jerry.cat", "likes": 29 },
+      { "emoji": "🙀", "name": "Startled at vacuum", "user": "@doraemon.cat", "likes": 87 },
+      { "emoji": "😻", "name": "Loaf mode", "user": "@mimi.purr", "likes": 54 },
+      { "emoji": "🐈", "name": "Stealth mode", "user": "@kuromeow", "likes": 33 },
+      { "emoji": "🐈‍⬛", "name": "Midnight vibes", "user": "@jerry.cat", "likes": 71 }
+    ]
+  },
+  "leaderboard": {
+    "title": "🏆 TopPaw",
+    "subtitle": "Top cats ranked by PurrPoint this week.",
+    "pointsLabel": "pts",
+    "youLabel": "That's you! 🐾",
+    "memberLabel": "cat member",
+    "top3": [
+      { "rank": 2, "name": "Mochi_San", "score": 8420, "emoji": "😸" },
+      { "rank": 1, "name": "PurrQueen", "score": 9870, "emoji": "👑" },
+      { "rank": 3, "name": "NightPaww", "score": 7650, "emoji": "🌙" }
+    ],
+    "list": [
+      { "rank": 4, "name": "CatNapper42", "score": 6300, "emoji": "🐱", "me": false },
+      { "rank": 5, "name": "LoafKing", "score": 5880, "emoji": "😺", "me": false },
+      { "rank": 6, "name": "You 🐾", "score": 4720, "emoji": "🐾", "me": true },
+      { "rank": 7, "name": "FluffyBoss", "score": 4100, "emoji": "🙀", "me": false },
+      { "rank": 8, "name": "MidnightMeow", "score": 3550, "emoji": "🐈‍⬛", "me": false },
+      { "rank": 9, "name": "TabbyTrouble", "score": 2980, "emoji": "🐈", "me": false },
+      { "rank": 10, "name": "SilentPaws", "score": 2340, "emoji": "😻", "me": false }
+    ]
+  },
+  "shop": {
+    "title": "🛍️ ClawMart",
+    "subtitle": "Spend your PurrPoint on stuff that sparks joy.",
+    "categories": [
+      { "id": "all", "label": "All" },
+      { "id": "backgrounds", "label": "🖼️ Backgrounds" },
+      { "id": "stickers", "label": "✨ Stickers" },
+      { "id": "avatars", "label": "🐱 Avatars" },
+      { "id": "themes", "label": "🎨 Themes" }
+    ],
+    "newLabel": "New",
+    "ownedLabel": "✓ Owned",
+    "getIt": "Get it",
+    "done": "✓ Done!",
+    "pointsLabel": "pts",
+    "items": [
+      {
+        "emoji": "🌸",
+        "name": "Sakura Theme",
+        "desc": "Soft pink petals everywhere.",
+        "cat": "themes",
+        "price": 1200,
+        "isNew": true,
+        "owned": false
+      },
+      {
+        "emoji": "🌙",
+        "name": "Night Mode Bg",
+        "desc": "Dark sky, glowing moon.",
+        "cat": "backgrounds",
+        "price": 800,
+        "isNew": false,
+        "owned": true
+      },
+      {
+        "emoji": "🐟",
+        "name": "Fish Sticker Pack",
+        "desc": "12 fishy reaction stickers.",
+        "cat": "stickers",
+        "price": 600,
+        "isNew": true,
+        "owned": false
+      },
+      {
+        "emoji": "😺",
+        "name": "Beret Cat Avatar",
+        "desc": "Very chic, very cat.",
+        "cat": "avatars",
+        "price": 1500,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "☁️",
+        "name": "Cloud Bg",
+        "desc": "Soft pastel floating clouds.",
+        "cat": "backgrounds",
+        "price": 700,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "🎀",
+        "name": "Ribbon Frame",
+        "desc": "A bow-tie photo frame!",
+        "cat": "stickers",
+        "price": 400,
+        "isNew": false,
+        "owned": true
+      },
+      {
+        "emoji": "🐾",
+        "name": "PawPrint Theme",
+        "desc": "Subtle paw patterns everywhere.",
+        "cat": "themes",
+        "price": 900,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "🧶",
+        "name": "Yarn Avatar",
+        "desc": "Your cat, but with yarn.",
+        "cat": "avatars",
+        "price": 1100,
+        "isNew": true,
+        "owned": false
+      }
+    ]
+  },
+  "music": {
+    "title": "🎧 BeatPaws",
+    "subtitle": "Synced music for your crew. Queue up, vibe out.",
+    "live": "🟢 Live",
+    "paused": "⏸ Paused",
+    "upNext": "Up next 🎶",
+    "addToQueue": "+ Add to queue",
+    "previous": "Previous",
+    "shuffle": "Shuffle",
+    "play": "Play",
+    "pause": "Pause",
+    "repeat": "Repeat",
+    "next": "Next",
+    "currentTime": "1:34",
+    "totalTime": "4:12",
+    "queue": [
+      { "emoji": "🎵", "track": "Thang Tu La Loi Noi Doi", "artist": "Ha Anh Tuan", "dur": "4:12", "active": true },
+      { "emoji": "🎶", "track": "Blinding Lights", "artist": "The Weeknd", "dur": "3:22", "active": false },
+      { "emoji": "🎸", "track": "As It Was", "artist": "Harry Styles", "dur": "2:37", "active": false },
+      { "emoji": "🎹", "track": "Nhu Nhung Phut Ban Dau", "artist": "Bang Kieu", "dur": "5:08", "active": false },
+      { "emoji": "🎺", "track": "Levitating", "artist": "Dua Lipa", "dur": "3:23", "active": false }
+    ]
+  },
+  "profile": {
+    "title": "🐾 PurrDex",
+    "subtitle": "Your cat identity card. Make it yours.",
+    "fallbackUser": "Cat User",
+    "online": "Online",
+    "providerGoogle": "🟦 Google",
+    "providerEmail": "✉️ Email",
+      "purrPointLabel": "PurrPoint",
+      "modeLabel": "Mode",
+      "postsLabel": "Posts",
+      "friendLabel": "Friend",
+      "bioLabel": "Bio",
+      "locationLabel": "Location",
+      "timezoneLabel": "Timezone",
+      "unknownCountry": "Unknown",
+      "visibilityPublicLabel": "Public",
+      "visibilityFriendsLabel": "Friends",
+      "visibilityPrivateLabel": "Private",
+      "zodiacAries": "Aries",
+      "zodiacTaurus": "Taurus",
+      "zodiacGemini": "Gemini",
+      "zodiacCancer": "Cancer",
+      "zodiacLeo": "Leo",
+      "zodiacVirgo": "Virgo",
+      "zodiacLibra": "Libra",
+      "zodiacScorpio": "Scorpio",
+      "zodiacSagittarius": "Sagittarius",
+      "zodiacCapricorn": "Capricorn",
+      "zodiacAquarius": "Aquarius",
+      "zodiacPisces": "Pisces",
+      "zodiacUnknown": "Unknown",
+    "stats": { "points": "Points", "rooms": "Rooms", "badges": "Badges" },
+    "editProfile": "✏️ Edit profile",
+    "badgesTitle": "Badges 🏅",
+    "activityTitle": "Recent activity ⚡",
+    "badges": ["🐾 Early Cat", "🎧 BeatPaws Fan", "📸 Shutterpaw", "🏆 Top 10", "🧶 Crafter", "🌙 Night Owl", "🎮 Gamer Paw"],
+    "activity": [
+      { "icon": "🏠", "text": "Joined Lo-fi Study Corner", "time": "2 min ago" },
+      { "icon": "❤️", "text": "Liked a photo in MewSeum", "time": "18 min ago" },
+      { "icon": "🛍️", "text": "Bought Sakura Theme", "time": "1 hr ago" },
+      { "icon": "🎧", "text": "Queued a song in BeatPaws", "time": "3 hr ago" },
+      { "icon": "🏆", "text": "Reached #6 on TopPaw", "time": "Yesterday" }
+    ]
+  },
+  "loader": {
+    "aria": "Loading session",
+    "label": "Just a sec... 🐾"
+  },
+  "about": {
+    "title": "About PurrVibeX",
+    "intro": "PurrVibeX is a playful social space for cat lovers to hang out, share moments, and enjoy cozy real-time features together.",
+    "cards": [
+      {
+        "title": "Our mission",
+        "text": "Make online social spaces feel warm, safe, and fun, like walking into a tiny cat cafe with friends."
+      },
+      {
+        "title": "What we build",
+        "text": "Real-time meow rooms, synced music, cat profile identity, and light gamified rewards to keep things joyful."
+      },
+      {
+        "title": "How we design",
+        "text": "Pastel visuals, soft motion, and clear UX patterns so users can instantly feel at home."
+      },
+      {
+        "title": "Team values",
+        "text": "Kindness first, playful by default, and always built with accessibility and performance in mind."
+      }
+    ]
+  },
+  "auth": {
+    "loginTitle": "Welcome back 🐾",
+    "loginSubtitle": "Sign in and pick up right where you left off.",
+    "registerTitle": "Join the cat squad 😸",
+    "registerSubtitle": "Takes 30 seconds. Your cozy corner is waiting.",
+    "email": "Email",
+    "password": "Password",
+    "displayName": "Display name",
+    "loginButton": "Sign in",
+    "googleButton": "Continue with Google",
+    "orContinueWithEmail": "or sign in with email",
+    "firebaseReady": "Email/password login is ready.",
+    "firebaseAuthLabel": "Firebase Auth",
+    "dividerAria": "or",
+    "resetEnterEmail": "Please enter your email first.",
+    "resetSent": "Password reset email sent! Check your inbox.",
+    "registerNoteTitle": "New cat vibe",
+    "registerNoteText": "Set your display name, create account, and jump into PurrVibeX.",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "displayNamePlaceholder": "Mochi Cat",
+    "registerButton": "Create account",
+    "resetPassword": "Forgot password?",
+    "switchToRegister": "Don't have an account?",
+    "switchToLogin": "Already have an account?",
+    "successLogin": "Welcome back! 🐾",
+    "successRegister": "Account created! Welcome to the squad 😸",
+    "firebaseMissing": "Firebase is not configured yet. Fill in frontend/.env.example first."
+  },
+  "system": {
+    "checkingPassTitle": "Checking your cat pass...",
+    "checkingPassDesc": "Please wait while we verify your session."
+  },
+  "editProfile": {
+    "title": "✏️ Edit Profile",
+    "subtitle": "Keep your cat vibes fresh and accurate.",
+    "sectionAvatar": "Avatar",
+    "sectionBasic": "Basic Info",
+    "sectionContact": "Contact",
+    "sectionLocation": "Location",
+    "sectionSocial": "Links & Social",
+    "sectionPrefs": "Preferences",
+    "displayName": "Display name",
+    "username": "Username",
+    "gender": "Gender",
+    "dateOfBirth": "Date of birth",
+    "bio": "Bio",
+    "email": "Email",
+    "phone": "Phone number",
+    "ward": "Ward / Neighborhood",
+    "city": "City / Province",
+    "country": "Country",
+    "websiteUrl": "Website",
+    "socialTwitter": "Twitter / X",
+    "socialInstagram": "Instagram",
+    "timezone": "Timezone",
+    "locale": "Language",
+    "profileVisibility": "Profile visibility",
+    "visibilityPublic": "🌍 Public",
+    "visibilityFriends": "🐾 Friends only",
+    "visibilityPrivate": "🔒 Private",
+    "genderMale": "Male",
+    "genderFemale": "Female",
+    "genderNonBinary": "Non-binary",
+    "genderOther": "Other",
+    "genderPreferNot": "Prefer not to say",
+    "avatarEdit": "✏️ Change avatar",
+    "avatarUrl": "Image URL",
+    "avatarOrPick": "or pick a cat emoji",
+    "saveButton": "Save changes 🐾",
+    "saving": "Saving...",
+    "cancelButton": "Cancel",
+    "successMessage": "Profile updated! 🐾",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "usernameWarning": "Username can only be changed once every 30 days.",
+    "usernameCooldown": "Available to change again in {days} day(s).",
+    "emailWarning": "Email can only be changed once after registration.",
+    "emailLocked": "Your email has already been changed once and is now locked. 🔒",
+    "errorUsernameFormat": "Username must be 3–30 characters: letters, numbers, . or _",
+    "errorPhoneFormat": "Please enter a valid phone number (e.g. +84 912 345 678).",
+    "errorEmailFormat": "Please enter a valid email address.",
+    "errorBioMax": "Max 200 characters allowed.",
+    "errorWebsiteFormat": "Please enter a valid URL starting with https://",
+    "errorDobFuture": "Date of birth cannot be in the future.",
+    "errorDobMinAge": "You must be at least 10 years old.",
+    "labelPlaceholderBio": "A little something about your cat self... 🐱",
+    "labelPlaceholderWebsite": "https://yoursite.cat",
+    "labelPlaceholderTwitter": "@username",
+    "labelPlaceholderInstagram": "@username",
+    "labelPlaceholderPhone": "+84 912 345 678",
+    "labelPlaceholderUsername": "mochipurr",
+    "labelPlaceholderWard": "Phường / Ward",
+    "labelPlaceholderCity": "Ho Chi Minh City",
+    "labelPlaceholderCountry": "Vietnam",
+    "countrySelectPlaceholder": "Select country",
+    "citySelectPlaceholder": "Select city",
+    "wardSelectPlaceholder": "Select ward",
+    "loadingCities": "Loading cities...",
+    "loadingWards": "Loading wards..."
+  }
+}
