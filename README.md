@@ -335,4 +335,6 @@ Frontend workflow (`.github/workflows/deploy-frontend.yml`):
 Backend workflow (`.github/workflows/deploy-backend.yml`):
 
 - `RAILWAY_TOKEN`
+- `RAILWAY_PROJECT_ID` (recommended)
+- `RAILWAY_ENVIRONMENT_ID` (optional)
 - `BACKEND_HEALTHCHECK_URL` (optional, example: `https://your-backend.up.railway.app/api/health`)

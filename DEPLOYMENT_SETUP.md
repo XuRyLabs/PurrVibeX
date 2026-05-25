@@ -2,7 +2,7 @@
 
 ## GitHub Actions Secrets Required
 
-Workflow CI/CD cần các secrets để deploy. Setup sau = deploy tự động khi push.
+Workflow CI/CD cần các secrets để deploy. Sau khi setup xong, mỗi lần merge vào `main` (GitHub tạo push mới trên `main`) sẽ tự động deploy.
 
 ### 1. Firebase Service Account (Required for frontend deploy)
 
@@ -50,6 +50,8 @@ bash setup-firebase-secret.sh
 | Secret | Value | Source |
 |--------|-------|--------|
 | `RAILWAY_TOKEN` | Your Railway API token | Railway → Account → API Tokens |
+| `RAILWAY_PROJECT_ID` | Recommended: Railway project id | Railway project settings |
+| `RAILWAY_ENVIRONMENT_ID` | Optional: target environment id | Railway environment settings |
 | `BACKEND_HEALTHCHECK_URL` | Optional | `https://your-app.up.railway.app/health` |
 
 ---
@@ -98,7 +100,7 @@ php artisan test
 → Missing Firebase secrets. Double-check all 6 VITE_FIREBASE_* secrets are set.
 
 ### "RAILWAY_TOKEN invalid"
-→ Token expired or wrong. Regenerate at Railway Account settings.
+→ Token expired / wrong account / no access vào Railway project. Regenerate token và nếu cần thì thêm `RAILWAY_PROJECT_ID` để workflow target đúng project.
 
 ---
 
@@ -109,6 +111,7 @@ php artisan test
 - [ ] Added VITE_API_URL pointing to Railway backend
 - [ ] Added 5 VITE_PUSHER_* secrets
 - [ ] Added RAILWAY_TOKEN for backend deploys
+- [ ] Added RAILWAY_PROJECT_ID (recommended)
 - [ ] Tested frontend build locally (`npm run build`)
 - [ ] Tested backend (`php artisan test`)
 - [ ] Ran workflow manually from GitHub Actions tab
