@@ -1,4 +1,4 @@
-import { useLanguage } from '../i18n.jsx';
+import { useLanguage } from '../i18n';
 
 export default function About() {
   const { strings } = useLanguage();

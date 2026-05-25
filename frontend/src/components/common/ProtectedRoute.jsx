@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../../auth.jsx';
-import { useLanguage } from '../../i18n.jsx';
+import { useLanguage } from '../../i18n';
 
 export default function ProtectedRoute() {
   const { user, loading } = useAuth();

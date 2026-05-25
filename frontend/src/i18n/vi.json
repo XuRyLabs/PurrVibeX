@@ -1,0 +1,486 @@
+{
+  "nav": {
+    "about": "Về chúng mình",
+    "rooms": "PurrLounge",
+    "gallery": "MewSeum",
+    "leaderboard": "TopPaw",
+    "shop": "ClawMart",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "Đăng xuất",
+    "switchTo": "English",
+    "profile": "PurrDex",
+    "darkMode": "PurrDark",
+    "lightMode": "PurrLight",
+    "brandSubtitle": "Powered by XuRyLabs",
+    "settings": "Cài đặt"
+  },
+  "home": {
+    "titleLead": "Góc café ấm áp cho những kẻ si mê —",
+    "titleHighlight": "xin chào, sen!",
+    "intro": "Cùng chill, đăng ảnh boss, nghe nhạc cùng nhau. 🐱",
+    "primary": "Vào PurrLounge ngay ✨",
+    "secondary": "Lướt MewSeum 📸",
+    "badgeRow": ["Vibe êm ru ☁️", "Lounge giải trí 🟢", "PurrPoints mua quà 🎁"],
+    "heroTitle": "Hình dung quán café mèo nhỏ xíu — nhưng trên internet.",
+    "heroSubtitle": "Ấm áp, vui tươi, hơi có chút đáng yêu của những con human cuồng mèo. 🌸",
+    "heroNotes": [
+      "🌙 Chuyển cảnh mượt như bơ",
+      "🐱 Tông pastel nhẹ nhàng, mát mắt",
+      "🎮 Hoạt động được thiết kế cho các sen"
+    ],
+    "featureTitle": "Bốn điều cậu có thể làm ở đây 🐾",
+    "featureSubtitle": "Vào là chơi, mọi thứ đều đơn giản và dễ hiểu.",
+    "highlights": [
+      {
+        "title": "🏠 PurrLounge",
+        "text": "Phòng theo chủ đề để chill và trò chuyện thật tự nhiên."
+      },
+      {
+        "title": "🎧 BeatPaws",
+        "text": "Nghe nhạc đồng bộ với bạn bè, thêm mini game cho vui."
+      },
+      {
+        "title": "🐾 PurrDex",
+        "text": "Tùy chỉnh avatar, mood và style mèo của riêng bạn."
+      },
+      {
+        "title": "🛍️ ClawMart",
+        "text": "Dùng điểm để mở sticker, theme và đồ trang trí xinh."
+      }
+    ],
+    "quickTitle": "Muốn đi đâu nè? 🐾",
+    "quickSubtitle": "Chạm một cái là vào.",
+    "quickGuestPrompt": "Đăng nhập để khám phá.",
+    "quickLinks": [
+      {
+        "icon": "🏠",
+        "title": "PurrLounge",
+        "description": "Tìm một phòng ấm cúng, vào chill như ở nhà và chào mọi người."
+      },
+      {
+        "icon": "🖼️",
+        "title": "MewSeum",
+        "description": "Lướt ảnh boss từ cộng đồng. Vừa thư giãn vừa chữa lành."
+      },
+      {
+        "icon": "🏆",
+        "title": "TopPaw",
+        "description": "Ai là boss top đầu? Xem bảng xếp hạng ngay."
+      },
+      {
+        "icon": "🛒",
+        "title": "ClawMart",
+        "description": "Tự thưởng cho mình đi, bạn xứng đáng có bộ sticker lấp lánh đó."
+      }
+    ],
+    "reelTitle": "✨ Đang diễn ra ngay lúc này",
+    "reelSubtitle": "Khoảnh khắc live nho nhỏ cả ngày.",
+    "loopingMotionTitle": "Luôn có gì đó đang xảy ra",
+    "softTransitionsTitle": "Mượt như mèo đáp đất",
+    "reelLabels": ["Xem 👁️", "Rừ rừ 😸", "Chơi 🎮"],
+    "proofTitle": "Mèo thật, cảm xúc thật 😸",
+    "proofSubtitle": "Review ngắn từ hội mê mèo dùng sớm.",
+    "testimonials": [
+      {
+        "name": "Doraemon Chan",
+        "role": "Người vào sớm nhất hội",
+        "quote": "Vào vì ảnh mèo, ở lại vì vibe. Quá cuốn.",
+        "avatar": "🐱✨"
+      },
+      {
+        "name": "Kuro Neko",
+        "role": "Con nghiện BeatPaws tự phong",
+        "quote": "Nghe nhạc đồng bộ rất mượt, dùng là dính luôn.",
+        "avatar": "🎧🐾"
+      },
+      {
+        "name": "Mimi Meow",
+        "role": "Chuyên gia PurrDex",
+        "quote": "Tùy chỉnh profile vừa nhanh vừa vui, siêu đáng yêu.",
+        "avatar": "📸😸"
+      }
+    ],
+    "footerTitle": "Được tạo bởi XuRyLabs với cả trái tim 🩷",
+    "footerText": "🐾 PurrVibeX — góc café xinh xẻo với những kẻ yêu mèo.",
+    "trustPills": ["UI không cringe 🙅", "Mèo duyệt 🐾", "Dễ thương muốn xỉu 🌸"]
+  },
+  "rooms": {
+    "title": "🏠 PurrLounge",
+    "subtitle": "Tìm góc chill hợp gu và vào vibe cùng mọi người.",
+    "filters": { "all": "Tất cả", "live": "🟢 Live", "chill": "🌙 Chill" },
+    "liveLabel": "🟢 Live",
+    "chillLabel": "🌙 Chill",
+    "inRoom": "trong phòng",
+    "list": [
+      {
+        "title": "Góc học Lo-fi ☕",
+        "desc": "Phòng yên tĩnh để học và nghe nhạc nhẹ.",
+        "tag": "Live",
+        "live": true,
+        "members": ["🐱", "🐾", "😸"],
+        "count": 8
+      },
+      {
+        "title": "Gaming Night 🎮",
+        "desc": "Mini game, đấu giải nhỏ và cười xỉu.",
+        "tag": "Hot",
+        "live": true,
+        "members": ["😺", "🐱", "🐾"],
+        "count": 14
+      },
+      {
+        "title": "Đổi ảnh boss 📸",
+        "desc": "Up ảnh mèo xịn và nhận reaction từ cộng đồng.",
+        "tag": "Mới",
+        "live": true,
+        "members": ["🙀", "😸"],
+        "count": 5
+      },
+      {
+        "title": "Vibe cú đêm 🌙",
+        "desc": "Chat khuya cho hội mèo ngủ muộn.",
+        "tag": "Chill",
+        "live": false,
+        "members": ["🐾"],
+        "count": 2
+      },
+      {
+        "title": "BeatPaws DJ Room 🎧",
+        "desc": "Thay phiên chọn nhạc, không toxic.",
+        "tag": "Live",
+        "live": true,
+        "members": ["😸", "🐱", "🐾"],
+        "count": 11
+      },
+      {
+        "title": "Book & Tea Club 📚",
+        "desc": "Sáng nhẹ, trà ấm và chia sẻ sách hay.",
+        "tag": "Chill",
+        "live": false,
+        "members": ["🐱", "😺"],
+        "count": 3
+      }
+    ]
+  },
+  "gallery": {
+    "title": "🖼️ MewSeum",
+    "subtitle": "Ảnh boss từ cộng đồng. Up ngay nếu muốn khoe.",
+    "shareButton": "+ Đăng ảnh",
+    "tags": ["Tất cả", "Cute", "Hài hước", "Chill", "Năng động"],
+    "photos": [
+      { "emoji": "🐱", "name": "Mochi ngủ nướng", "user": "@Doraemon.cat", "likes": 42 },
+      { "emoji": "😸", "name": "Ngáp cực mạnh", "user": "@Kmimi.purr", "likes": 38 },
+      { "emoji": "🐾", "name": "Cận cảnh bàn chân", "user": "@kuromeow", "likes": 61 },
+      { "emoji": "😺", "name": "Ngồi canh cửa sổ", "user": "@jerry.cat", "likes": 29 },
+      { "emoji": "🙀", "name": "Hoảng vì máy hút bụi", "user": "@Doraemon.cat", "likes": 87 },
+      { "emoji": "😻", "name": "Loaf mode", "user": "@Kmimi.purr", "likes": 54 },
+      { "emoji": "🐈", "name": "Stealth mode", "user": "@kuromeow", "likes": 33 },
+      { "emoji": "🐈‍⬛", "name": "Vibe nửa đêm", "user": "@jerry.cat", "likes": 71 }
+    ]
+  },
+  "leaderboard": {
+    "title": "🏆 TopPaw",
+    "subtitle": "Top mèo theo PurrPoint tuần này.",
+    "pointsLabel": "điểm",
+    "youLabel": "Bạn đây rồi! 🐾",
+    "memberLabel": "thành viên",
+    "top3": [
+      { "rank": 2, "name": "Mochi_San", "score": 8420, "emoji": "😸" },
+      { "rank": 1, "name": "PurrQueen", "score": 9870, "emoji": "👑" },
+      { "rank": 3, "name": "NightPaww", "score": 7650, "emoji": "🌙" }
+    ],
+    "list": [
+      { "rank": 4, "name": "CatNapper42", "score": 6300, "emoji": "🐱", "me": false },
+      { "rank": 5, "name": "LoafKing", "score": 5880, "emoji": "😺", "me": false },
+      { "rank": 6, "name": "Bạn 🐾", "score": 4720, "emoji": "🐾", "me": true },
+      { "rank": 7, "name": "FluffyBoss", "score": 4100, "emoji": "🙀", "me": false },
+      { "rank": 8, "name": "MidnightMeow", "score": 3550, "emoji": "🐈‍⬛", "me": false },
+      { "rank": 9, "name": "TabbyTrouble", "score": 2980, "emoji": "🐈", "me": false },
+      { "rank": 10, "name": "SilentPaws", "score": 2340, "emoji": "😻", "me": false }
+    ]
+  },
+  "shop": {
+    "title": "🛍️ ClawMart",
+    "subtitle": "Dùng PurrPoint cho những món siêu xinh.",
+    "categories": [
+      { "id": "all", "label": "Tất cả" },
+      { "id": "backgrounds", "label": "🖼️ Nền" },
+      { "id": "stickers", "label": "✨ Sticker" },
+      { "id": "avatars", "label": "🐱 Avatar" },
+      { "id": "themes", "label": "🎨 Theme" }
+    ],
+    "newLabel": "Mới",
+    "ownedLabel": "✓ Đã sở hữu",
+    "getIt": "Nhận ngay",
+    "done": "✓ Xong!",
+    "pointsLabel": "điểm",
+    "items": [
+      {
+        "emoji": "🌸",
+        "name": "Sakura Theme",
+        "desc": "Cánh hoa hồng pastel phủ khắp giao diện.",
+        "cat": "themes",
+        "price": 1200,
+        "isNew": true,
+        "owned": false
+      },
+      {
+        "emoji": "🌙",
+        "name": "Night Mode Bg",
+        "desc": "Bầu trời tối và trăng phát sáng.",
+        "cat": "backgrounds",
+        "price": 800,
+        "isNew": false,
+        "owned": true
+      },
+      {
+        "emoji": "🐟",
+        "name": "Fish Sticker Pack",
+        "desc": "12 sticker cá cho reaction nhanh.",
+        "cat": "stickers",
+        "price": 600,
+        "isNew": true,
+        "owned": false
+      },
+      {
+        "emoji": "😺",
+        "name": "Beret Cat Avatar",
+        "desc": "Đội nón beret cực nghệ.",
+        "cat": "avatars",
+        "price": 1500,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "☁️",
+        "name": "Cloud Bg",
+        "desc": "Nền mây pastel siêu nhẹ mắt.",
+        "cat": "backgrounds",
+        "price": 700,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "🎀",
+        "name": "Ribbon Frame",
+        "desc": "Khung ảnh nơ hồng dễ thương.",
+        "cat": "stickers",
+        "price": 400,
+        "isNew": false,
+        "owned": true
+      },
+      {
+        "emoji": "🐾",
+        "name": "PawPrint Theme",
+        "desc": "Theme dấu chân mèo tinh tế.",
+        "cat": "themes",
+        "price": 900,
+        "isNew": false,
+        "owned": false
+      },
+      {
+        "emoji": "🧶",
+        "name": "Yarn Avatar",
+        "desc": "Avatar mèo ôm cục len.",
+        "cat": "avatars",
+        "price": 1100,
+        "isNew": true,
+        "owned": false
+      }
+    ]
+  },
+  "music": {
+    "title": "🎧 BeatPaws",
+    "subtitle": "Nghe nhạc đồng bộ cùng hội bạn.",
+    "live": "🟢 Live",
+    "paused": "⏸ Tạm dừng",
+    "upNext": "Danh sách tiếp theo 🎶",
+    "addToQueue": "+ Thêm vào queue",
+    "previous": "Bài trước",
+    "shuffle": "Ngẫu nhiên",
+    "play": "Phát",
+    "pause": "Tạm dừng",
+    "repeat": "Lặp lại",
+    "next": "Bài tiếp",
+    "currentTime": "1:34",
+    "totalTime": "4:12",
+    "queue": [
+      { "emoji": "🎵", "track": "Tháng Tư Là Lời Nói Dối", "artist": "Hà Anh Tuấn", "dur": "4:12", "active": true },
+      { "emoji": "🎶", "track": "Blinding Lights", "artist": "The Weeknd", "dur": "3:22", "active": false },
+      { "emoji": "🎸", "track": "As It Was", "artist": "Harry Styles", "dur": "2:37", "active": false },
+      { "emoji": "🎹", "track": "Như Những Phút Ban Đầu", "artist": "Bằng Kiều", "dur": "5:08", "active": false },
+      { "emoji": "🎺", "track": "Levitating", "artist": "Dua Lipa", "dur": "3:23", "active": false }
+    ]
+  },
+  "profile": {
+    "title": "🐾 PurrDex",
+    "subtitle": "Thẻ định danh mèo của bạn. Biến nó thành chất riêng.",
+    "fallbackUser": "Cat User",
+    "online": "Đang online",
+    "providerGoogle": "🟦 Google",
+    "providerEmail": "✉️ Email",
+      "purrPointLabel": "PurrPoint",
+      "modeLabel": "Chế độ",
+      "postsLabel": "Bài đăng",
+      "friendLabel": "Bạn bè",
+      "bioLabel": "Tiểu sử",
+      "locationLabel": "Vị trí",
+      "timezoneLabel": "Múi giờ",
+      "unknownCountry": "Chưa rõ",
+      "visibilityPublicLabel": "Công khai",
+      "visibilityFriendsLabel": "Bạn bè",
+      "visibilityPrivateLabel": "Riêng tư",
+      "zodiacAries": "Bạch Dương",
+      "zodiacTaurus": "Kim Ngưu",
+      "zodiacGemini": "Song Tử",
+      "zodiacCancer": "Cự Giải",
+      "zodiacLeo": "Sư Tử",
+      "zodiacVirgo": "Xử Nữ",
+      "zodiacLibra": "Thiên Bình",
+      "zodiacScorpio": "Bọ Cạp",
+      "zodiacSagittarius": "Nhân Mã",
+      "zodiacCapricorn": "Ma Kết",
+      "zodiacAquarius": "Bảo Bình",
+      "zodiacPisces": "Song Ngư",
+      "zodiacUnknown": "Chưa rõ",
+    "stats": { "points": "Điểm", "rooms": "Phòng", "badges": "Badge" },
+    "editProfile": "✏️ Chỉnh sửa hồ sơ",
+    "badgesTitle": "Badge 🏅",
+    "activityTitle": "Hoạt động gần đây ⚡",
+    "badges": ["🐾 Early Cat", "🎧 Fan BeatPaws", "📸 Shutterpaw", "🏆 Top 10", "🧶 Crafter", "🌙 Cú đêm", "🎮 Gamer Paw"],
+    "activity": [
+      { "icon": "🏠", "text": "Vừa vào phòng Lo-fi Study Corner", "time": "2 phút trước" },
+      { "icon": "❤️", "text": "Đã thả tim một ảnh trong MewSeum", "time": "18 phút trước" },
+      { "icon": "🛍️", "text": "Đã mua Sakura Theme", "time": "1 giờ trước" },
+      { "icon": "🎧", "text": "Đã thêm bài hát vào BeatPaws", "time": "3 giờ trước" },
+      { "icon": "🏆", "text": "Đạt hạng #6 trên TopPaw", "time": "Hôm qua" }
+    ]
+  },
+  "loader": {
+    "aria": "Đang tải phiên đăng nhập",
+    "label": "Đợi xíu nhé... 🐾"
+  },
+  "about": {
+    "title": "Về PurrVibeX",
+    "intro": "PurrVibeX là một không gian social vui tươi cho hội yêu mèo, nơi mọi người có thể trò chuyện, chia sẻ khoảnh khắc và tận hưởng các tính năng real-time cùng nhau.",
+    "cards": [
+      {
+        "title": "Sứ mệnh",
+        "text": "Biến trải nghiệm social online trở nên ấm áp, an toàn và thú vị như bước vào một quán cafe mèo nhỏ xinh."
+      },
+      {
+        "title": "Chúng mình xây gì",
+        "text": "Meow room real-time, nghe nhạc đồng bộ, hồ sơ mèo cá nhân hóa và phần thưởng nho nhỏ để mọi thứ luôn vui."
+      },
+      {
+        "title": "Cách thiết kế",
+        "text": "Visual pastel, chuyển động mềm và UX rõ ràng để người dùng vào là thấy quen ngay."
+      },
+      {
+        "title": "Giá trị đội ngũ",
+        "text": "Ưu tiên sự tử tế, giữ tinh thần nhí nhảnh và luôn chú trọng cả hiệu năng lẫn khả năng truy cập."
+      }
+    ]
+  },
+  "auth": {
+    "loginTitle": "Ơ bạn quay lại rồi! 🐾",
+    "loginSubtitle": "Đăng nhập để tiếp tục từ chỗ bạn bỏ dở.",
+    "registerTitle": "Gia nhập hội mèo thôi! 😸",
+    "registerSubtitle": "30 giây là xong. Góc nhỏ của bạn đang chờ.",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "displayName": "Tên hiển thị",
+    "loginButton": "Đăng nhập",
+    "googleButton": "Tiếp tục với Google",
+    "orContinueWithEmail": "hoặc đăng nhập bằng email",
+    "firebaseReady": "Đăng nhập email/mật khẩu đã sẵn sàng.",
+    "firebaseAuthLabel": "Firebase Auth",
+    "dividerAria": "hoặc",
+    "resetEnterEmail": "Vui lòng nhập email trước.",
+    "resetSent": "Đã gửi email đặt lại mật khẩu! Kiểm tra hộp thư nhé.",
+    "registerNoteTitle": "Vibe mèo mới",
+    "registerNoteText": "Đặt tên hiển thị, tạo tài khoản và sẵn sàng vào thế giới PurrVibeX.",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "displayNamePlaceholder": "Mochi Cat",
+    "registerButton": "Tạo tài khoản",
+    "resetPassword": "Quên mật khẩu?",
+    "switchToRegister": "Chưa có tài khoản?",
+    "switchToLogin": "Đã có tài khoản?",
+    "successLogin": "Chào mừng trở lại! 🐾",
+    "successRegister": "Tài khoản đã tạo! Chào mừng đến với hội 😸",
+    "firebaseMissing": "Firebase chưa được cấu hình. Hãy điền `frontend/.env.example` trước."
+  },
+  "system": {
+    "checkingPassTitle": "Đang kiểm tra phiên đăng nhập...",
+    "checkingPassDesc": "Vui lòng đợi trong lúc chúng mình xác thực phiên của bạn."
+  },
+  "editProfile": {
+    "title": "✏️ Chỉnh sửa hồ sơ",
+    "subtitle": "Cập nhật thông tin để hồ sơ mèo của bạn luôn đúng và xinh. 🐱",
+    "sectionAvatar": "Avatar",
+    "sectionBasic": "Thông tin cơ bản",
+    "sectionContact": "Liên hệ",
+    "sectionLocation": "Địa chỉ",
+    "sectionSocial": "Liên kết & Mạng xã hội",
+    "sectionPrefs": "Tùy chọn",
+    "displayName": "Tên hiển thị",
+    "username": "Tên người dùng",
+    "gender": "Giới tính",
+    "dateOfBirth": "Ngày tháng năm sinh",
+    "bio": "Giới thiệu ngắn",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "ward": "Phường / Xã",
+    "city": "Thành phố / Tỉnh",
+    "country": "Quốc gia",
+    "websiteUrl": "Website",
+    "socialTwitter": "Twitter / X",
+    "socialInstagram": "Instagram",
+    "timezone": "Múi giờ",
+    "locale": "Ngôn ngữ",
+    "profileVisibility": "Hiển thị hồ sơ",
+    "visibilityPublic": "🌍 Công khai",
+    "visibilityFriends": "🐾 Chỉ bạn bè",
+    "visibilityPrivate": "🔒 Riêng tư",
+    "genderMale": "Nam",
+    "genderFemale": "Nữ",
+    "genderNonBinary": "Phi nhị nguyên",
+    "genderOther": "Khác",
+    "genderPreferNot": "Không muốn tiết lộ",
+    "avatarEdit": "✏️ Đổi avatar",
+    "avatarUrl": "URL hình ảnh",
+    "avatarOrPick": "hoặc chọn emoji mèo",
+    "saveButton": "Lưu thay đổi 🐾",
+    "saving": "Đang lưu...",
+    "cancelButton": "Hủy",
+    "successMessage": "Hồ sơ đã được cập nhật! 🐾",
+    "errorGeneric": "Có lỗi xảy ra. Vui lòng thử lại.",
+    "usernameWarning": "Tên người dùng chỉ được đổi một lần mỗi 30 ngày.",
+    "usernameCooldown": "Có thể đổi lại sau {days} ngày nữa.",
+    "emailWarning": "Email chỉ được thay đổi một lần duy nhất sau khi đăng ký.",
+    "emailLocked": "Email của bạn đã được thay đổi một lần và hiện đã bị khóa. 🔒",
+    "errorUsernameFormat": "Tên người dùng phải từ 3–30 ký tự: chữ, số, . hoặc _",
+    "errorPhoneFormat": "Vui lòng nhập số điện thoại hợp lệ (ví dụ: 0912 345 678).",
+    "errorEmailFormat": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "errorBioMax": "Tối đa 200 ký tự.",
+    "errorWebsiteFormat": "Vui lòng nhập URL hợp lệ bắt đầu bằng https://",
+    "errorDobFuture": "Ngày sinh không được ở tương lai.",
+    "errorDobMinAge": "Bạn phải đủ ít nhất 10 tuổi.",
+    "labelPlaceholderBio": "Vài dòng về bản thân mèo của bạn... 🐱",
+    "labelPlaceholderWebsite": "https://yoursite.cat",
+    "labelPlaceholderTwitter": "@username",
+    "labelPlaceholderInstagram": "@username",
+    "labelPlaceholderPhone": "0912 345 678",
+    "labelPlaceholderUsername": "mochipurr",
+    "labelPlaceholderWard": "Phường / Xã",
+    "labelPlaceholderCity": "TP. Hồ Chí Minh",
+    "labelPlaceholderCountry": "Việt Nam",
+    "countrySelectPlaceholder": "Chọn quốc gia",
+    "citySelectPlaceholder": "Chọn thành phố / tỉnh",
+    "wardSelectPlaceholder": "Chọn phường / quận",
+    "loadingCities": "Đang tải danh sách thành phố...",
+    "loadingWards": "Đang tải danh sách phường..."
+  }
+}
