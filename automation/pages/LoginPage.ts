@@ -1,49 +1,55 @@
-import { Page, Locator } from "@playwright/test";
+import { Page } from
+'@playwright/test'
 
 export class LoginPage {
-  readonly loginLink: Locator;
-  readonly emailField: Locator;
-  readonly passwordField: Locator;
-  readonly signInButton: Locator;
-  readonly errorMessage: Locator;
 
-  constructor(private page: Page) {
-    this.loginLink = page.getByRole("link", { name: "Login" });
-    this.emailField = page.getByPlaceholder("you@example.com");
-    this.passwordField = page.locator('input[type="password"]');
-    this.signInButton = page.getByRole("button", { name: "Sign in" });
-    this.errorMessage = page.locator(".auth-message");
-  }
+ constructor(
+   private page: Page
+ ) {}
 
-  async goto() {
-    await this.page.goto("https://purrvibex.web.app/");
-  }
+ loginLink = () =>
+   this.page.getByRole(
+     'link',
+     { name: 'Login' }
+   )
 
-  async clickLoginLink() {
-    await this.loginLink.click();
-  }
+ emailInput = () =>
+   this.page.locator(
+     'input[type="email"]'
+   )
 
-  async enterEmail(email: string) {
-    await this.emailField.fill(email);
-  }
+ passwordInput = () =>
+   this.page.locator(
+     'input[type="password"]'
+   )
 
-  async enterPassword(password: string) {
-    await this.passwordField.fill(password);
-  }
+ signInButton = () =>
+   this.page.locator(
+     'button[type="submit"]'
+   )
 
-  async clickSignInButton() {
-    await this.signInButton.click();
-  }
+ async navigate() {
 
-  async login(email: string, password: string) {
-    await this.clickLoginLink();
-    await this.enterEmail(email);
-    await this.enterPassword(password);
-    await this.clickSignInButton();
-  }
+   await this.page.goto(
+     'https://purrvibex.web.app/'
+   )
+ }
 
-  async navigateToLoginForm() {
-    await this.goto();
-    await this.clickLoginLink();
-  }
+ async login(
+   email: string,
+   password: string
+ ) {
+
+   await this.loginLink()
+   .click()
+
+   await this.emailInput()
+   .fill(email)
+
+   await this.passwordInput()
+   .fill(password)
+
+   await this.signInButton()
+   .click()
+ }
 }
