@@ -1,55 +1,29 @@
-import { Page } from
-'@playwright/test'
+import { Page } from "@playwright/test";
 
 export class LoginPage {
+  constructor(private page: Page) {}
 
- constructor(
-   private page: Page
- ) {}
+  loginLink = () => this.page.getByRole("link", { name: "Login" });
 
- loginLink = () =>
-   this.page.getByRole(
-     'link',
-     { name: 'Login' }
-   )
+  emailInput = () => this.page.locator('input[type="email"]');
 
- emailInput = () =>
-   this.page.locator(
-     'input[type="email"]'
-   )
+  passwordInput = () => this.page.locator('input[type="password"]');
 
- passwordInput = () =>
-   this.page.locator(
-     'input[type="password"]'
-   )
+  signInButton = () => this.page.locator('button[type="submit"]');
 
- signInButton = () =>
-   this.page.locator(
-     'button[type="submit"]'
-   )
+  errorMessage = () => this.page.locator(".auth-message");
 
- async navigate() {
+  async navigate() {
+    await this.page.goto("https://purrvibex.web.app/");
+  }
 
-   await this.page.goto(
-     'https://purrvibex.web.app/'
-   )
- }
+  async login(email: string, password: string) {
+    await this.loginLink().click();
 
- async login(
-   email: string,
-   password: string
- ) {
+    await this.emailInput().fill(email);
 
-   await this.loginLink()
-   .click()
+    await this.passwordInput().fill(password);
 
-   await this.emailInput()
-   .fill(email)
-
-   await this.passwordInput()
-   .fill(password)
-
-   await this.signInButton()
-   .click()
- }
+    await this.signInButton().click();
+  }
 }

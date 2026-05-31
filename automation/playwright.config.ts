@@ -1,4 +1,9 @@
-use: {
- baseURL:
- 'https://purrvibex.com'
-}
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  reporter: 'html',
+
+  use: {
+    baseURL: 'https://purrvibex.com',
+  },
+});
