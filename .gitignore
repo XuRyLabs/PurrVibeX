@@ -1,0 +1,63 @@
+# Root project-level ignores
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.backup
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+._.DS_Store
+
+# Editor
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Temporary
+*.tmp
+tmp/
+temp/
+
+# Node
+node_modules/
+
+# PHP
+vendor/
+
+# Database
+*.sqlite
+*.sqlite3
+database.sqlite
+
+# Docker (local)
+.docker/
+docker-compose.override.yml
+
+# Build
+dist/
+build/
+
+# Firebase local cache
+.firebase/
+
+# Config
+# .env.example is kept in repo for onboarding docs
+
+purrvibex-firebase-adminsdk-*.json
+
+test-results/

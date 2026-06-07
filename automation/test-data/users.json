@@ -1,0 +1,15 @@
+{
+  "validUser": {
+    "email": "xu.cat@yopmail.com",
+
+    "password": "1234abcd@"
+  },
+  "invalidUser": {
+    "email": "invalid@example.com",
+    "password": "wrongpassword"
+  },
+  "emptyUser": {
+    "email": "",
+    "password": "1234abcd@"
+  }
+}
