@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'frontend' => [
+        'health_url' => env('FRONTEND_HEALTH_URL', env('FRONTEND_URL')),
+        'timeout_seconds' => (int) env('FRONTEND_HEALTH_TIMEOUT', 3),
+    ],
+
 ];

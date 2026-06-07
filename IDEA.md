@@ -239,6 +239,14 @@ Not just a social network — but a playful, relaxing space for connecting with 
 
 ---
 
+## 🛡️ Admin Dashboard Planning
 
+Detailed admin-dashboard planning has been moved to `ADMIN_IDEA.md` for easier team review.
+
+- Admin UI stack: Laravel Blade (`backend/`)
+- Existing user-facing frontend remains unchanged (`frontend/`)
+- See full module breakdown, routes, and prompts in `ADMIN_IDEA.md`
+
+---
 
 > *Every idea, no matter how small, is recorded here. **PurrVibeX** will grow over time! 🐾*

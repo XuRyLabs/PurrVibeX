@@ -11,7 +11,13 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\HealthController;
 
+
+// Health
+Route::get('/health', [HealthController::class, 'apiHealth']);
+Route::get('/health/liveness', [HealthController::class, 'liveness']);
+Route::get('/health/readiness', [HealthController::class, 'readiness']);
 
 // Auth
 Route::post('/register', [AuthController::class, 'register']);
