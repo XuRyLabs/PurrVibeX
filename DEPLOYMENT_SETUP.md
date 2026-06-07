@@ -23,6 +23,20 @@ bash setup-firebase-secret.sh
 # - Value: Paste the encoded JSON
 ```
 
+### Important: Base64 Encoding
+
+The `FIREBASE_SERVICE_ACCOUNT` secret **MUST be base64 encoded** (one continuous line, no line breaks). The GitHub Actions workflow will:
+
+1. Decode the base64 string back to JSON
+2. Validate that the JSON is valid
+3. Pass the JSON to Firebase Hosting deploy action
+
+**⚠️ Do NOT paste the raw JSON directly.** The helper script `setup-firebase-secret.sh` handles encoding automatically.
+
+Troubleshooting decode errors:
+- If you see `SyntaxError: Unexpected token 'e'`, the secret was pasted as raw JSON instead of base64.
+- Re-run `bash setup-firebase-secret.sh`, carefully copy the entire base64 block (no line breaks), and update the secret.
+
 ### 2. Firebase Project Secrets
 
 | Secret | Value | Source |
@@ -33,6 +47,8 @@ bash setup-firebase-secret.sh
 | `VITE_FIREBASE_STORAGE_BUCKET` | `purrvibex.firebasestorage.app` | Firebase Console |
 | `VITE_FIREBASE_MESSAGING_SENDER_ID` | Your sender ID | Firebase Console |
 | `VITE_FIREBASE_APP_ID` | Your app ID | Firebase Console |
+
+**Note**: These 6 Firebase config secrets can be found in your `frontend/.env` or Firebase Console under "Project settings" → "Your apps" → "Web app settings".
 
 ### 3. Backend API Secrets
 
@@ -102,6 +118,19 @@ php artisan test
 ### "RAILWAY_TOKEN invalid"
 → Token expired / wrong account / no access vào Railway project. Regenerate token và nếu cần thì thêm `RAILWAY_PROJECT_ID` để workflow target đúng project.
 
+### "Failed to authenticate, have you run firebase login?" / "SyntaxError: Unexpected token 'e'"
+→ Firebase service account secret is in wrong format.
+   - **Check**: Was Base64 encoding applied? Re-run `bash setup-firebase-secret.sh` and confirm the output is a long single line (base64 encoded), not JSON with `{` and `}`.
+   - **Check**: Is the entire base64 string copied to secret? No partial copy, no line breaks, no extra spaces.
+   - **If still failing**: Manually decode to check format:
+	 ```bash
+	 echo "your_base64_string_here" | base64 -d | python3 -m json.tool
+	 ```
+	 If this fails, your base64 is corrupted or not properly encoded.
+
+### Frontend build fails with "esbuild: command not found"
+→ Missing `frontend/node_modules`. The workflow runs `npm ci` to install dependencies. Check that `package-lock.json` or `yarn.lock` is committed.
+
 ---
 
 ## 📋 Quick Checklist
@@ -112,6 +141,7 @@ php artisan test
 - [ ] Added 5 VITE_PUSHER_* secrets
 - [ ] Added RAILWAY_TOKEN for backend deploys
 - [ ] Added RAILWAY_PROJECT_ID (recommended)
+- [ ] Verified FIREBASE_SERVICE_ACCOUNT is base64 encoded (not raw JSON)
 - [ ] Tested frontend build locally (`npm run build`)
 - [ ] Tested backend (`php artisan test`)
 - [ ] Ran workflow manually from GitHub Actions tab
