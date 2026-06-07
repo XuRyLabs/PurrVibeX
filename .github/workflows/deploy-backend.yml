@@ -1,99 +1,30 @@
-name: Deploy Backend → Railway
+name: Deploy to Raspberry Pi
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'backend/**'
-      - '.github/workflows/deploy-backend.yml'
-
-permissions:
-  contents: read
-
-concurrency:
-  group: deploy-backend-main
-  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-    env:
-      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-      RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT_ID }}
-      RAILWAY_ENVIRONMENT_ID: ${{ secrets.RAILWAY_ENVIRONMENT_ID }}
-      RAILWAY_SERVICE_NAME: backend
-      BACKEND_HEALTHCHECK_URL: ${{ secrets.BACKEND_HEALTHCHECK_URL }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Deploy to Pi
+        uses: appleboy/ssh-action@v1.0.0
         with:
-          node-version: '20'
-
-      - name: Install Railway CLI
-        run: npm install -g @railway/cli
-
-      - name: Validate Railway secrets
-        run: |
-          if [ -z "$RAILWAY_TOKEN" ]; then
-            echo "RAILWAY_TOKEN is missing. Add it in GitHub -> Settings -> Secrets and variables -> Actions."
-            exit 1
-          fi
-
-          echo "RAILWAY_TOKEN detected."
-
-          if [ -n "$RAILWAY_PROJECT_ID" ]; then
-            echo "RAILWAY_PROJECT_ID detected."
-          else
-            echo "RAILWAY_PROJECT_ID not set. Railway CLI will rely on repo/service linkage."
-          fi
-
-          if [ -n "$RAILWAY_ENVIRONMENT_ID" ]; then
-            echo "RAILWAY_ENVIRONMENT_ID detected."
-          else
-            echo "RAILWAY_ENVIRONMENT_ID not set. Railway CLI will use the default environment."
-          fi
-
-      - name: Verify Railway authentication
-        run: railway whoami
-
-      - name: Deploy to Railway
-        working-directory: backend
-        run: |
-          project_args=()
-          environment_args=()
-
-          if [ -n "$RAILWAY_PROJECT_ID" ]; then
-            project_args+=(--project "$RAILWAY_PROJECT_ID")
-          fi
-
-          if [ -n "$RAILWAY_ENVIRONMENT_ID" ]; then
-            environment_args+=(--environment "$RAILWAY_ENVIRONMENT_ID")
-          fi
-
-          railway up \
-            --service "$RAILWAY_SERVICE_NAME" \
-            --detach \
-            --ci \
-            "${project_args[@]}" \
-            "${environment_args[@]}"
-
-      - name: Wait for backend health endpoint
-        if: ${{ env.BACKEND_HEALTHCHECK_URL != '' }}
-        run: |
-          for i in {1..20}; do
-            if curl -fsS "$BACKEND_HEALTHCHECK_URL" > /dev/null; then
-              echo "Backend health check passed"
-              exit 0
-            fi
-            echo "Waiting for backend to become healthy ($i/20)..."
-            sleep 6
-          done
-          echo "Backend health check failed"
-          exit 1
+          host: ${{ secrets.PI_HOST }}
+          username: ${{ secrets.PI_USER }}
+          key: ${{ secrets.PI_SSH_KEY }}
+          proxy_host: ssh.purrvibex.online
+          use_insecure_cipher: false
+          script: |
+            cd /var/www/purrvibex
+            git pull origin main
+            cd backend
+            composer install --no-dev
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            sudo systemctl restart php8.4-fpm
+            sudo systemctl restart nginx
